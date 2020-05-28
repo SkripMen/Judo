@@ -69,5 +69,12 @@ namespace Judo
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
+
+        private void MembersBut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MembersForm membersForm = new MembersForm();
+            membersForm.Show();
+        }
     }
 }

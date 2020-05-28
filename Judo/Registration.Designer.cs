@@ -65,7 +65,7 @@
             this.RegPanel.Controls.Add(this.panel2);
             this.RegPanel.Location = new System.Drawing.Point(0, 0);
             this.RegPanel.Name = "RegPanel";
-            this.RegPanel.Size = new System.Drawing.Size(420, 385);
+            this.RegPanel.Size = new System.Drawing.Size(422, 387);
             this.RegPanel.TabIndex = 0;
             this.RegPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegPanel_MouseDown);
             this.RegPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegPanel_MouseMove);
@@ -194,7 +194,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(420, 100);
+            this.panel2.Size = new System.Drawing.Size(422, 100);
             this.panel2.TabIndex = 0;
             // 
             // CloseBut
@@ -218,7 +218,7 @@
             this.RegText.ForeColor = System.Drawing.Color.White;
             this.RegText.Location = new System.Drawing.Point(0, 0);
             this.RegText.Name = "RegText";
-            this.RegText.Size = new System.Drawing.Size(420, 100);
+            this.RegText.Size = new System.Drawing.Size(422, 100);
             this.RegText.TabIndex = 3;
             this.RegText.Text = "Регистрация";
             this.RegText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -236,6 +236,7 @@
             this.MaximumSize = new System.Drawing.Size(420, 385);
             this.MinimumSize = new System.Drawing.Size(420, 385);
             this.Name = "Registration";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Judo | Регистрация";
             this.RegPanel.ResumeLayout(false);
             this.RegPanel.PerformLayout();
