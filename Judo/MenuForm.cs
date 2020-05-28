@@ -76,5 +76,12 @@ namespace Judo
             MembersForm membersForm = new MembersForm();
             membersForm.Show();
         }
+
+        private void ChangePas_Click(object sender, EventArgs e)
+        {
+            SettingsPanel.Visible = false;
+            ChangeForm changeForm = new ChangeForm();
+            changeForm.Show();
+        }
     }
 }

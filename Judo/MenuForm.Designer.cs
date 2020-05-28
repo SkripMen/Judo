@@ -100,6 +100,7 @@
             this.ChangePas.TabIndex = 0;
             this.ChangePas.Text = "Изменить пароль";
             this.ChangePas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ChangePas.Click += new System.EventHandler(this.ChangePas_Click);
             // 
             // ViewBut
             // 
