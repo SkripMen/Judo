@@ -9,7 +9,7 @@ namespace Judo
 {
     class DataBase
     {
-        OleDbConnection DBConnection = new OleDbConnection("provider=Microsoft.Jet.OLEDB.4.0;data source=D:\\Все файлы\\Мои программы\\C#\\Judo\\Judo.mdb");
+        OleDbConnection DBConnection = new OleDbConnection("provider=Microsoft.Jet.OLEDB.4.0;data source=Judo.mdb");
         public object[] SendCommand(string command)
         {
             DBConnection.Open();
