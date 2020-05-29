@@ -38,12 +38,13 @@
             this.UserInput = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextPanel = new System.Windows.Forms.Panel();
-            this.CloseBut = new System.Windows.Forms.Label();
+            this.CloseBut = new System.Windows.Forms.PictureBox();
             this.LoginText = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TextPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -119,10 +120,11 @@
             // 
             // CloseBut
             // 
-            resources.ApplyResources(this.CloseBut, "CloseBut");
             this.CloseBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBut.ForeColor = System.Drawing.Color.White;
+            this.CloseBut.Image = global::Judo.Properties.Resources.close;
+            resources.ApplyResources(this.CloseBut, "CloseBut");
             this.CloseBut.Name = "CloseBut";
+            this.CloseBut.TabStop = false;
             this.CloseBut.Click += new System.EventHandler(this.CloseBut_Click);
             // 
             // LoginText
@@ -145,7 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TextPanel.ResumeLayout(false);
-            this.TextPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -161,7 +163,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label RegisterBut;
         private System.Windows.Forms.Button LoginBut;
-        private System.Windows.Forms.Label CloseBut;
         private System.Windows.Forms.Label ErrorText;
+        private System.Windows.Forms.PictureBox CloseBut;
     }
 }

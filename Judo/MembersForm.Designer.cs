@@ -35,14 +35,15 @@
             this.ImportBut = new System.Windows.Forms.Button();
             this.TableMembers = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.CloseBox = new System.Windows.Forms.PictureBox();
+            this.SearchPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SearchBut = new System.Windows.Forms.PictureBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
-            this.CloseBut = new System.Windows.Forms.Label();
             this.TextPanel = new System.Windows.Forms.Label();
-            this.SearchPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBut)).BeginInit();
             this.SuspendLayout();
@@ -130,15 +131,38 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            this.panel2.Controls.Add(this.CloseBox);
             this.panel2.Controls.Add(this.SearchPanel);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.CloseBut);
             this.panel2.Controls.Add(this.TextPanel);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 100);
             this.panel2.TabIndex = 0;
+            // 
+            // CloseBox
+            // 
+            this.CloseBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBox.Image = global::Judo.Properties.Resources.close;
+            this.CloseBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CloseBox.Location = new System.Drawing.Point(780, 0);
+            this.CloseBox.Name = "CloseBox";
+            this.CloseBox.Size = new System.Drawing.Size(20, 20);
+            this.CloseBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CloseBox.TabIndex = 7;
+            this.CloseBox.TabStop = false;
+            this.CloseBox.Click += new System.EventHandler(this.CloseBox_Click);
+            // 
+            // SearchPanel
+            // 
+            this.SearchPanel.Location = new System.Drawing.Point(497, 73);
+            this.SearchPanel.Name = "SearchPanel";
+            this.SearchPanel.Size = new System.Drawing.Size(272, 28);
+            this.SearchPanel.TabIndex = 6;
+            this.SearchPanel.Visible = false;
+            this.SearchPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchPanel_MouseDown);
+            this.SearchPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SearchPanel_MouseMove);
             // 
             // panel3
             // 
@@ -152,6 +176,7 @@
             // 
             // SearchBut
             // 
+            this.SearchBut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchBut.Image = global::Judo.Properties.Resources.magnifier;
             this.SearchBut.Location = new System.Drawing.Point(263, 5);
             this.SearchBut.Name = "SearchBut";
@@ -171,19 +196,6 @@
             this.SearchBox.Size = new System.Drawing.Size(247, 19);
             this.SearchBox.TabIndex = 4;
             // 
-            // CloseBut
-            // 
-            this.CloseBut.AutoSize = true;
-            this.CloseBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBut.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.CloseBut.ForeColor = System.Drawing.Color.White;
-            this.CloseBut.Location = new System.Drawing.Point(784, 0);
-            this.CloseBut.Name = "CloseBut";
-            this.CloseBut.Size = new System.Drawing.Size(16, 16);
-            this.CloseBut.TabIndex = 3;
-            this.CloseBut.Text = "X";
-            this.CloseBut.Click += new System.EventHandler(this.CloseBut_Click);
-            // 
             // TextPanel
             // 
             this.TextPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -198,16 +210,6 @@
             this.TextPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseDown);
             this.TextPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseMove);
             // 
-            // SearchPanel
-            // 
-            this.SearchPanel.Location = new System.Drawing.Point(497, 73);
-            this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(272, 28);
-            this.SearchPanel.TabIndex = 6;
-            this.SearchPanel.Visible = false;
-            this.SearchPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchPanel_MouseDown);
-            this.SearchPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SearchPanel_MouseMove);
-            // 
             // MembersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,7 +223,7 @@
             this.Text = "Judo | Участники";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBut)).EndInit();
@@ -235,7 +237,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label TextPanel;
         private System.Windows.Forms.TableLayoutPanel TableMembers;
-        private System.Windows.Forms.Label CloseBut;
         private System.Windows.Forms.Button BackBut;
         private System.Windows.Forms.Button ImportBut;
         private System.Windows.Forms.Button button1;
@@ -243,5 +244,6 @@
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.PictureBox SearchBut;
         private System.Windows.Forms.Panel SearchPanel;
+        private System.Windows.Forms.PictureBox CloseBox;
     }
 }

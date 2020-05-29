@@ -42,10 +42,11 @@
             this.LoginInput = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.CloseBut = new System.Windows.Forms.Label();
             this.RegText = new System.Windows.Forms.Label();
+            this.CloseBut = new System.Windows.Forms.PictureBox();
             this.RegPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
             this.SuspendLayout();
             // 
             // RegPanel
@@ -197,20 +198,6 @@
             this.panel2.Size = new System.Drawing.Size(422, 100);
             this.panel2.TabIndex = 0;
             // 
-            // CloseBut
-            // 
-            this.CloseBut.AutoSize = true;
-            this.CloseBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBut.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.CloseBut.ForeColor = System.Drawing.Color.White;
-            this.CloseBut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseBut.Location = new System.Drawing.Point(405, 0);
-            this.CloseBut.Name = "CloseBut";
-            this.CloseBut.Size = new System.Drawing.Size(16, 16);
-            this.CloseBut.TabIndex = 2;
-            this.CloseBut.Text = "X";
-            this.CloseBut.Click += new System.EventHandler(this.CloseBut_Click);
-            // 
             // RegText
             // 
             this.RegText.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -224,6 +211,19 @@
             this.RegText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RegText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegText_MouseDown);
             this.RegText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegText_MouseMove);
+            // 
+            // CloseBut
+            // 
+            this.CloseBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBut.Image = global::Judo.Properties.Resources.close;
+            this.CloseBut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CloseBut.Location = new System.Drawing.Point(399, 0);
+            this.CloseBut.Name = "CloseBut";
+            this.CloseBut.Size = new System.Drawing.Size(20, 20);
+            this.CloseBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CloseBut.TabIndex = 4;
+            this.CloseBut.TabStop = false;
+            this.CloseBut.Click += new System.EventHandler(this.CloseBut_Click);
             // 
             // Registration
             // 
@@ -241,7 +241,7 @@
             this.RegPanel.ResumeLayout(false);
             this.RegPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,7 +251,6 @@
         private System.Windows.Forms.Panel RegPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label RegText;
-        private System.Windows.Forms.Label CloseBut;
         private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.TextBox PasswordRepeatInput;
         private System.Windows.Forms.Label PasRepText;
@@ -263,5 +262,6 @@
         private System.Windows.Forms.Label LoginLabel;
         private System.Windows.Forms.Label LoginBut;
         private System.Windows.Forms.Label ErrorText2;
+        private System.Windows.Forms.PictureBox CloseBut;
     }
 }

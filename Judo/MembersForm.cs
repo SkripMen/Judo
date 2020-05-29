@@ -18,11 +18,6 @@ namespace Judo
             SearchPanel.Visible = true;
         }
 
-        private void CloseBut_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void SearchBut_Click(object sender, EventArgs e)
         {
             if (SearchPanel.Visible == true)
@@ -68,6 +63,11 @@ namespace Judo
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
             }
+        }
+
+        private void CloseBox_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

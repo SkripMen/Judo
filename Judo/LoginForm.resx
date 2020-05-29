@@ -125,6 +125,10 @@
   <data name="ErrorText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 10pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ErrorText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="ErrorText.Location" type="System.Drawing.Point, System.Drawing">
     <value>107, 299</value>
   </data>
@@ -158,7 +162,6 @@
   <data name="RegisterBut.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 10pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="RegisterBut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -318,32 +321,26 @@
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="CloseBut.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="CloseBut.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 10.25pt</value>
-  </data>
   <data name="CloseBut.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="CloseBut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 0</value>
+    <value>401, 0</value>
   </data>
   <data name="CloseBut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
+    <value>20, 20</value>
+  </data>
+  <data name="CloseBut.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
   </data>
   <data name="CloseBut.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="CloseBut.Text" xml:space="preserve">
-    <value>X</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;CloseBut.Name" xml:space="preserve">
     <value>CloseBut</value>
   </data>
   <data name="&gt;&gt;CloseBut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;CloseBut.Parent" xml:space="preserve">
     <value>TextPanel</value>

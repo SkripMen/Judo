@@ -30,11 +30,6 @@ namespace Judo
                 SettingsPanel.Visible = false;
         }
 
-        private void CloseBut_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void MainPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastPoint = new Point(e.X, e.Y);
@@ -82,6 +77,11 @@ namespace Judo
             SettingsPanel.Visible = false;
             ChangeForm changeForm = new ChangeForm();
             changeForm.Show();
+        }
+
+        private void CloseBut_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

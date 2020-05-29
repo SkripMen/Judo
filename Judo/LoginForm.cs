@@ -19,12 +19,6 @@ namespace Judo
             ErrorText.Visible = false;
         }
 
-        private void CloseBut_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
         Point lastPoint;
         private void MainPanel_MouseMove(object sender, MouseEventArgs e)
         {
@@ -87,6 +81,11 @@ namespace Judo
             this.Hide();
             Registration registration = new Registration();
             registration.Show();
+        }
+
+        private void CloseBut_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -20,11 +20,6 @@ namespace Judo
             ErrorText2.Visible = false;
         }
 
-        private void CloseBut_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         Point lastPoint;
         private void RegPanel_MouseMove(object sender, MouseEventArgs e)
         {
@@ -129,6 +124,11 @@ namespace Judo
             this.Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void CloseBut_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
