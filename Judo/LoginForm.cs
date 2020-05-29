@@ -64,6 +64,7 @@ namespace Judo
                     MenuForm menuForm = new MenuForm();
                     menuForm.Show();
                 }
+                else ErrorText.Visible = true;
             }
             else ErrorText.Visible = true;
         }
