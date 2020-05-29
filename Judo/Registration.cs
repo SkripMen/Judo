@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,56 +66,44 @@ namespace Judo
                 visible = false;
             }
 
-            if (Checked())
-                return;
+            if (Checked()) return;
 
             DataBase db = new DataBase();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`login`, `password`) VALUES (@l, @p)", db.getConnection());
-            command.Parameters.Add("@l", MySqlDbType.VarBinary).Value = LoginInput.Text;
-            command.Parameters.Add("@p", MySqlDbType.VarBinary).Value = PasswordInput.Text;
-
-            db.Connection();
+            object[] DBT = db.SendCommand(String.Format("INSERT INTO users (login, hash) VALUES ('{0}', '{1}')", LoginInput.Text, PasswordInput.Text));
 
             if (visible == false)
             {
-                if (command.ExecuteNonQuery() == 1)
-                {
-                    this.Hide();
-                    MenuForm menuForm = new MenuForm();
-                    menuForm.Show();
-                }
-                else
-                   MessageBox.Show("Произошла неизвестная ошибка! Попробуйте снова.");
+                this.Hide();
+                MenuForm menuForm = new MenuForm();
+                menuForm.Show();
             }
-
-            db.Disconnection();
         }
 
         public Boolean Checked()
         {
             DataBase db = new DataBase();
+            object[] DBT = db.SendCommand(String.Format("SELECT * FROM users WHERE login = '{0}';", LoginInput.Text));
 
-            DataTable table = new DataTable();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @l", db.getConnection());
-            command.Parameters.Add("@l", MySqlDbType.VarChar).Value = LoginInput.Text;
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            if (DBT[0] != null)
             {
-                ErrorText2.Visible = true;
-                return true;
+                if (DBT[1].ToString() == LoginInput.Text)
+                {
+                    ErrorText2.Visible = true;
+                    return true;
+                }
+                else
+                {
+                    ErrorText2.Visible = false;
+                    return false;
+                }
             }
             else
             {
                 ErrorText2.Visible = false;
                 return false;
             }
-                
+
         }
 
         private void LoginBut_Click(object sender, EventArgs e)

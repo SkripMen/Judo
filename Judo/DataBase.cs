@@ -1,31 +1,36 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.OleDb;
 
 namespace Judo
 {
     class DataBase
     {
-        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=judo");
+        OleDbConnection DBConnection = new OleDbConnection("provider=Microsoft.Jet.OLEDB.4.0;data source=D:\\Все файлы\\Мои программы\\C#\\Judo\\Judo.mdb");
+        public object[] SendCommand(string command)
+        {
+            DBConnection.Open();
 
-        public void Connection() 
-        {
-            if (connection.State == System.Data.ConnectionState.Closed)
-                connection.Open();
-        }
-        
-        public void Disconnection() 
-        {
-            if (connection.State == System.Data.ConnectionState.Open)
-                connection.Close();
-        }
+            OleDbCommand DBCommand = DBConnection.CreateCommand();
 
-        public MySqlConnection getConnection()
-        {
-            return connection;
+            DBCommand.CommandText = command;
+
+            OleDbDataReader DBDataReader = DBCommand.ExecuteReader();
+
+            DBDataReader.Read();
+            object[] Rows = new object[DBDataReader.FieldCount];
+            //string data = DBDataReader["hash"].ToString();
+            if (DBDataReader.HasRows)
+            {
+                DBDataReader.GetValues(Rows);
+            }
+            //string data = DBConnection.ToString();
+            DBDataReader.Close();
+            DBConnection.Close();
+            return Rows;
         }
     }
 }

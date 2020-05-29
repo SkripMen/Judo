@@ -1,8 +1,8 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -54,26 +54,18 @@ namespace Judo
             String password = PasswordInput.Text;
 
             DataBase db = new DataBase();
-
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @l AND `password` = @p", db.getConnection());
-            command.Parameters.Add("@l", MySqlDbType.VarChar).Value = login;
-            command.Parameters.Add("@p", MySqlDbType.VarChar).Value = password;
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            string command = String.Format("SELECT * FROM users WHERE login = '{0}' AND hash = '{1}';", login, password);
+            object[] DBT = db.SendCommand(command);
+            if (DBT[0] != null)
             {
-                this.Hide();
-                MenuForm menuForm = new MenuForm();
-                menuForm.Show();
+                if (DBT[1].ToString() == login && DBT[2].ToString() == password)
+                {
+                    this.Hide();
+                    MenuForm menuForm = new MenuForm();
+                    menuForm.Show();
+                }
             }
-            else
-                ErrorText.Visible = true;
+            else ErrorText.Visible = true;
         }
 
         private void RegisterBut_Click(object sender, EventArgs e)
