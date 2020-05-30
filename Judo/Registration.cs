@@ -54,7 +54,7 @@ namespace Judo
             String password = PasswordInput.Text;
             String passwordRep = PasswordRepeatInput.Text;
             Boolean visible = false;
-
+            HashClass hash = new HashClass();
             if (password != passwordRep)
             {
                 ErrorText.Visible = true;
@@ -65,14 +65,13 @@ namespace Judo
                 ErrorText.Visible = false;
                 visible = false;
             }
-
             if (Checked()) return;
 
             DataBase db = new DataBase();
-            object[] DBT = db.SendCommand(String.Format("INSERT INTO users (login, hash) VALUES ('{0}', '{1}')", LoginInput.Text, PasswordInput.Text));
 
             if (visible == false)
             {
+                db.SendCommand(String.Format("INSERT INTO users (login, hash) VALUES ('{0}', '{1}')", LoginInput.Text, hash.HashPassword(PasswordInput.Text)));
                 this.Hide();
                 MenuForm menuForm = new MenuForm();
                 menuForm.Show();

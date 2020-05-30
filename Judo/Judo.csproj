@@ -58,6 +58,7 @@
       <DependentUpon>ChangeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
+    <Compile Include="HashClass.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

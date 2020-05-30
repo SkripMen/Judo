@@ -50,20 +50,24 @@ namespace Judo
 
         private void LoginBut_Click(object sender, EventArgs e)
         {
+
+            //UserInput.Text = hash.HashPassword(PasswordInput.Text);
+            //hash.VerifyHashedPassword(hashP,"user");
             String login = UserInput.Text;
             String password = PasswordInput.Text;
-
+            HashClass hash = new HashClass();
             DataBase db = new DataBase();
-            string command = String.Format("SELECT * FROM users WHERE login = '{0}' AND hash = '{1}';", login, password);
+            string command = String.Format("SELECT * FROM users WHERE login = '{0}';", login);
             object[] DBT = db.SendCommand(command);
             if (DBT[0] != null)
             {
-                if (DBT[1].ToString() == login && DBT[2].ToString() == password)
+                if (DBT[1].ToString() == login && hash.VerifyHashedPassword(DBT[2].ToString(), password))
                 {
                     this.Hide();
                     MenuForm menuForm = new MenuForm();
                     menuForm.Show();
                 }
+                else ErrorText.Visible = true;
             }
             else ErrorText.Visible = true;
         }
