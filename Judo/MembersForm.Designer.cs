@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.EditBut = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -59,7 +62,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.EditBut);
             this.panel1.Controls.Add(this.BackBut);
             this.panel1.Controls.Add(this.ImportBut);
             this.panel1.Controls.Add(this.panel2);
@@ -71,6 +74,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Имя,
@@ -79,20 +93,41 @@
             this.Клуб,
             this.Место_проживания,
             this.Вес});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(11, 107);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(779, 394);
             this.dataGridView1.TabIndex = 5;
             // 
-            // button1
+            // EditBut
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(276, 507);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(249, 36);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Редактировать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.EditBut.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditBut.Location = new System.Drawing.Point(276, 507);
+            this.EditBut.Name = "EditBut";
+            this.EditBut.Size = new System.Drawing.Size(249, 36);
+            this.EditBut.TabIndex = 4;
+            this.EditBut.Text = "Редактировать";
+            this.EditBut.UseVisualStyleBackColor = true;
             // 
             // BackBut
             // 
@@ -202,6 +237,7 @@
             // 
             this.Имя.HeaderText = "Имя";
             this.Имя.Name = "Имя";
+            this.Имя.Width = 103;
             // 
             // Фамилия
             // 
@@ -213,13 +249,13 @@
             // 
             this.Год.HeaderText = "Год";
             this.Год.Name = "Год";
-            this.Год.Width = 60;
+            this.Год.Width = 75;
             // 
             // Клуб
             // 
             this.Клуб.HeaderText = "Клуб";
             this.Клуб.Name = "Клуб";
-            this.Клуб.Width = 150;
+            this.Клуб.Width = 175;
             // 
             // Место_проживания
             // 
@@ -262,7 +298,7 @@
         private System.Windows.Forms.Label TextPanel;
         private System.Windows.Forms.Button BackBut;
         private System.Windows.Forms.Button ImportBut;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button EditBut;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.PictureBox SearchBut;
