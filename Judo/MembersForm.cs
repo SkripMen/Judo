@@ -69,5 +69,15 @@ namespace Judo
         {
             Application.Exit();
         }
+
+        private void ImportBut_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OPF = new OpenFileDialog();
+            OPF.Filter = "Файлы txt|*.txt|Файлы cs|*.csv";
+            if (OPF.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(OPF.FileName);
+            }
+        }
     }
 }
