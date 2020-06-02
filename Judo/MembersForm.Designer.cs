@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.SearchBut = new System.Windows.Forms.PictureBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,11 +48,11 @@
             this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,6 +68,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 555);
             this.panel1.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Имя,
+            this.Фамилия,
+            this.Год,
+            this.Клуб,
+            this.Место_проживания,
+            this.Вес});
+            this.dataGridView1.Location = new System.Drawing.Point(11, 107);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(779, 394);
+            this.dataGridView1.TabIndex = 5;
             // 
             // button1
             // 
@@ -183,21 +198,6 @@
             this.TextPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseDown);
             this.TextPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseMove);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Имя,
-            this.Фамилия,
-            this.Год,
-            this.Клуб,
-            this.Место_проживания,
-            this.Вес});
-            this.dataGridView1.Location = new System.Drawing.Point(11, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(779, 150);
-            this.dataGridView1.TabIndex = 5;
-            // 
             // Имя
             // 
             this.Имя.HeaderText = "Имя";
@@ -207,26 +207,31 @@
             // 
             this.Фамилия.HeaderText = "Фамилия";
             this.Фамилия.Name = "Фамилия";
+            this.Фамилия.Width = 150;
             // 
             // Год
             // 
             this.Год.HeaderText = "Год";
             this.Год.Name = "Год";
+            this.Год.Width = 60;
             // 
             // Клуб
             // 
             this.Клуб.HeaderText = "Клуб";
             this.Клуб.Name = "Клуб";
+            this.Клуб.Width = 150;
             // 
             // Место_проживания
             // 
             this.Место_проживания.HeaderText = "Место проживания";
             this.Место_проживания.Name = "Место_проживания";
+            this.Место_проживания.Width = 200;
             // 
             // Вес
             // 
             this.Вес.HeaderText = "Вес";
             this.Вес.Name = "Вес";
+            this.Вес.Width = 75;
             // 
             // MembersForm
             // 
@@ -240,12 +245,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Judo | Участники";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
