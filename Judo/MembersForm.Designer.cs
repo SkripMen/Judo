@@ -46,8 +46,11 @@
             this.TextPanel = new System.Windows.Forms.Label();
             this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Пор = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Клуб = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Город_рождения = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Улица = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -89,8 +92,11 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Имя,
             this.Фамилия,
+            this.Пор,
             this.Год,
             this.Клуб,
+            this.Город_рождения,
+            this.Улица,
             this.Место_проживания,
             this.Вес});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -245,6 +251,12 @@
             this.Фамилия.Name = "Фамилия";
             this.Фамилия.Width = 150;
             // 
+            // Пор
+            // 
+            this.Пор.HeaderText = "Пол";
+            this.Пор.Name = "Пор";
+            this.Пор.Width = 50;
+            // 
             // Год
             // 
             this.Год.HeaderText = "Год";
@@ -256,6 +268,17 @@
             this.Клуб.HeaderText = "Клуб";
             this.Клуб.Name = "Клуб";
             this.Клуб.Width = 175;
+            // 
+            // Город_рождения
+            // 
+            this.Город_рождения.HeaderText = "Город рождения";
+            this.Город_рождения.Name = "Город_рождения";
+            this.Город_рождения.Width = 150;
+            // 
+            // Улица
+            // 
+            this.Улица.HeaderText = "Улица";
+            this.Улица.Name = "Улица";
             // 
             // Место_проживания
             // 
@@ -307,8 +330,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Имя;
         private System.Windows.Forms.DataGridViewTextBoxColumn Фамилия;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Пор;
         private System.Windows.Forms.DataGridViewTextBoxColumn Год;
         private System.Windows.Forms.DataGridViewTextBoxColumn Клуб;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Город_рождения;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Улица;
         private System.Windows.Forms.DataGridViewTextBoxColumn Место_проживания;
         private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
     }
