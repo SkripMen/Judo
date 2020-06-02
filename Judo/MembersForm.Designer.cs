@@ -33,7 +33,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
-            this.TableMembers = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CloseBox = new System.Windows.Forms.PictureBox();
             this.SearchPanel = new System.Windows.Forms.Panel();
@@ -41,20 +40,28 @@
             this.SearchBut = new System.Windows.Forms.PictureBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Клуб = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
+            this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BackBut);
             this.panel1.Controls.Add(this.ImportBut);
-            this.panel1.Controls.Add(this.TableMembers);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -79,7 +86,7 @@
             this.BackBut.Name = "BackBut";
             this.BackBut.Size = new System.Drawing.Size(249, 36);
             this.BackBut.TabIndex = 3;
-            this.BackBut.Text = "Назад";
+            this.BackBut.Text = "Сохранить и выйти";
             this.BackBut.UseVisualStyleBackColor = true;
             this.BackBut.Click += new System.EventHandler(this.BackBut_Click);
             // 
@@ -92,41 +99,6 @@
             this.ImportBut.TabIndex = 2;
             this.ImportBut.Text = "Импорт участников";
             this.ImportBut.UseVisualStyleBackColor = true;
-            // 
-            // TableMembers
-            // 
-            this.TableMembers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
-            this.TableMembers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.TableMembers.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.TableMembers.ColumnCount = 6;
-            this.TableMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TableMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TableMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TableMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TableMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TableMembers.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.TableMembers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TableMembers.Font = new System.Drawing.Font("Arial", 8.25F);
-            this.TableMembers.Location = new System.Drawing.Point(11, 106);
-            this.TableMembers.Name = "TableMembers";
-            this.TableMembers.RowCount = 15;
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.666667F));
-            this.TableMembers.Size = new System.Drawing.Size(779, 392);
-            this.TableMembers.TabIndex = 1;
             // 
             // panel2
             // 
@@ -210,6 +182,51 @@
             this.TextPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseDown);
             this.TextPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseMove);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Имя,
+            this.Фамилия,
+            this.Год,
+            this.Клуб,
+            this.Место_проживания,
+            this.Вес});
+            this.dataGridView1.Location = new System.Drawing.Point(11, 107);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(779, 150);
+            this.dataGridView1.TabIndex = 5;
+            // 
+            // Имя
+            // 
+            this.Имя.HeaderText = "Имя";
+            this.Имя.Name = "Имя";
+            // 
+            // Фамилия
+            // 
+            this.Фамилия.HeaderText = "Фамилия";
+            this.Фамилия.Name = "Фамилия";
+            // 
+            // Год
+            // 
+            this.Год.HeaderText = "Год";
+            this.Год.Name = "Год";
+            // 
+            // Клуб
+            // 
+            this.Клуб.HeaderText = "Клуб";
+            this.Клуб.Name = "Клуб";
+            // 
+            // Место_проживания
+            // 
+            this.Место_проживания.HeaderText = "Место проживания";
+            this.Место_проживания.Name = "Место_проживания";
+            // 
+            // Вес
+            // 
+            this.Вес.HeaderText = "Вес";
+            this.Вес.Name = "Вес";
+            // 
             // MembersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +244,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchBut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -236,7 +254,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label TextPanel;
-        private System.Windows.Forms.TableLayoutPanel TableMembers;
         private System.Windows.Forms.Button BackBut;
         private System.Windows.Forms.Button ImportBut;
         private System.Windows.Forms.Button button1;
@@ -245,5 +262,12 @@
         private System.Windows.Forms.PictureBox SearchBut;
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.PictureBox CloseBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Имя;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Фамилия;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Год;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Клуб;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Место_проживания;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
     }
 }
