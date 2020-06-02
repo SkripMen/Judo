@@ -92,6 +92,7 @@
             this.ImportBut.TabIndex = 2;
             this.ImportBut.Text = "Импорт участников";
             this.ImportBut.UseVisualStyleBackColor = true;
+            this.ImportBut.Click += new System.EventHandler(this.ImportBut_Click);
             // 
             // TableMembers
             // 
