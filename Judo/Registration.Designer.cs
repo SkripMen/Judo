@@ -42,8 +42,8 @@
             this.LoginInput = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.RegText = new System.Windows.Forms.Label();
             this.CloseBut = new System.Windows.Forms.PictureBox();
+            this.RegText = new System.Windows.Forms.Label();
             this.RegPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
@@ -66,7 +66,7 @@
             this.RegPanel.Controls.Add(this.panel2);
             this.RegPanel.Location = new System.Drawing.Point(0, 0);
             this.RegPanel.Name = "RegPanel";
-            this.RegPanel.Size = new System.Drawing.Size(422, 387);
+            this.RegPanel.Size = new System.Drawing.Size(422, 353);
             this.RegPanel.TabIndex = 0;
             this.RegPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegPanel_MouseDown);
             this.RegPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegPanel_MouseMove);
@@ -198,6 +198,19 @@
             this.panel2.Size = new System.Drawing.Size(422, 100);
             this.panel2.TabIndex = 0;
             // 
+            // CloseBut
+            // 
+            this.CloseBut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBut.Image = global::Judo.Properties.Resources.close;
+            this.CloseBut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CloseBut.Location = new System.Drawing.Point(399, 0);
+            this.CloseBut.Name = "CloseBut";
+            this.CloseBut.Size = new System.Drawing.Size(20, 20);
+            this.CloseBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CloseBut.TabIndex = 4;
+            this.CloseBut.TabStop = false;
+            this.CloseBut.Click += new System.EventHandler(this.CloseBut_Click);
+            // 
             // RegText
             // 
             this.RegText.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -211,19 +224,6 @@
             this.RegText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RegText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RegText_MouseDown);
             this.RegText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RegText_MouseMove);
-            // 
-            // CloseBut
-            // 
-            this.CloseBut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBut.Image = global::Judo.Properties.Resources.close;
-            this.CloseBut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseBut.Location = new System.Drawing.Point(399, 0);
-            this.CloseBut.Name = "CloseBut";
-            this.CloseBut.Size = new System.Drawing.Size(20, 20);
-            this.CloseBut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CloseBut.TabIndex = 4;
-            this.CloseBut.TabStop = false;
-            this.CloseBut.Click += new System.EventHandler(this.CloseBut_Click);
             // 
             // Registration
             // 
