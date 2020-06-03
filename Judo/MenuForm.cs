@@ -20,8 +20,6 @@ namespace Judo
 
         Point lastPoint;
 
-
-
         private void Settings_Click(object sender, EventArgs e)
         {
             if(SettingsPanel.Visible == false)
