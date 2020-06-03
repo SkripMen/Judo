@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Пол = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Город_рождения = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Клуб = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditBut = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
@@ -44,6 +53,7 @@
             this.SearchBut = new System.Windows.Forms.PictureBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,6 +90,15 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Имя,
+            this.Фамилия,
+            this.Пол,
+            this.Год,
+            this.Город_рождения,
+            this.Место_проживания,
+            this.Клуб,
+            this.Вес});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.25F);
@@ -105,6 +124,54 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(779, 394);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // Имя
+            // 
+            this.Имя.HeaderText = "Имя";
+            this.Имя.Name = "Имя";
+            this.Имя.Width = 95;
+            // 
+            // Фамилия
+            // 
+            this.Фамилия.HeaderText = "Фамилия";
+            this.Фамилия.Name = "Фамилия";
+            this.Фамилия.Width = 125;
+            // 
+            // Пол
+            // 
+            this.Пол.HeaderText = "Пол";
+            this.Пол.Name = "Пол";
+            this.Пол.Width = 35;
+            // 
+            // Год
+            // 
+            this.Год.HeaderText = "Год";
+            this.Год.Name = "Год";
+            this.Год.Width = 85;
+            // 
+            // Город_рождения
+            // 
+            this.Город_рождения.HeaderText = "Город рождения";
+            this.Город_рождения.Name = "Город_рождения";
+            this.Город_рождения.Width = 150;
+            // 
+            // Место_проживания
+            // 
+            this.Место_проживания.HeaderText = "Место проживания";
+            this.Место_проживания.Name = "Место_проживания";
+            this.Место_проживания.Width = 300;
+            // 
+            // Клуб
+            // 
+            this.Клуб.HeaderText = "Клуб";
+            this.Клуб.Name = "Клуб";
+            this.Клуб.Width = 125;
+            // 
+            // Вес
+            // 
+            this.Вес.HeaderText = "Вес";
+            this.Вес.Name = "Вес";
+            this.Вес.Width = 85;
             // 
             // EditBut
             // 
@@ -157,7 +224,7 @@
             this.CloseBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseBox.Image = global::Judo.Properties.Resources.close;
             this.CloseBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CloseBox.Location = new System.Drawing.Point(777, 3);
+            this.CloseBox.Location = new System.Drawing.Point(780, 0);
             this.CloseBox.Name = "CloseBox";
             this.CloseBox.Size = new System.Drawing.Size(20, 20);
             this.CloseBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,9 +234,9 @@
             // 
             // SearchPanel
             // 
-            this.SearchPanel.Location = new System.Drawing.Point(497, 73);
+            this.SearchPanel.Location = new System.Drawing.Point(509, 73);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(272, 28);
+            this.SearchPanel.Size = new System.Drawing.Size(259, 28);
             this.SearchPanel.TabIndex = 6;
             this.SearchPanel.Visible = false;
             this.SearchPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchPanel_MouseDown);
@@ -202,6 +269,7 @@
             this.SearchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
             this.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchBox.Font = new System.Drawing.Font("Arial", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SearchBox.ForeColor = System.Drawing.Color.White;
             this.SearchBox.Location = new System.Drawing.Point(12, 6);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(247, 19);
@@ -220,6 +288,11 @@
             this.TextPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TextPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseDown);
             this.TextPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseMove);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 5;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MembersForm
             // 
@@ -257,5 +330,14 @@
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.PictureBox CloseBox;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Имя;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Фамилия;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Пол;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Год;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Город_рождения;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Место_проживания;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Клуб;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
+        private System.Windows.Forms.Timer timer;
     }
 }

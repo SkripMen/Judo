@@ -20,8 +20,6 @@ namespace Judo
 
         Point lastPoint;
 
-
-
         private void Settings_Click(object sender, EventArgs e)
         {
             if(SettingsPanel.Visible == false)
@@ -61,8 +59,8 @@ namespace Judo
         private void Exit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
+            StartForm startForm = new StartForm();
+            startForm.Show();
         }
 
         private void MembersBut_Click(object sender, EventArgs e)

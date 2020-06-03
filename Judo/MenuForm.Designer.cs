@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.MainPanel = new System.Windows.Forms.Panel();
             this.SettingsPanel = new System.Windows.Forms.Panel();
@@ -41,6 +42,7 @@
             this.CloseBut = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextPanel = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.MainPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Settings)).BeginInit();
@@ -240,5 +242,6 @@
         private System.Windows.Forms.Label ChangePas;
         private System.Windows.Forms.Label Exit;
         private System.Windows.Forms.PictureBox CloseBut;
+        private System.Windows.Forms.Timer timer;
     }
 }

@@ -13,11 +13,17 @@ namespace Judo
 {
     public partial class MembersForm : Form
     {
+        int panellogin;
+        bool Hidden;
+
         public MembersForm()
         {
             InitializeComponent();
             SearchPanel.Visible = true;
             EqualDGV();
+
+            panellogin = SearchPanel.Width;
+            Hidden = false;
         }
         private void EqualDGV()
         {
@@ -46,7 +52,8 @@ namespace Judo
         private void SearchBut_Click(object sender, EventArgs e)
         {
             if (SearchPanel.Visible == true)
-                SearchPanel.Visible = false;
+                //SearchPanel.Visible = false;
+                timer.Start();
             else if (SearchPanel.Visible == false && SearchBox.Text != "")
             {
                 for (int i = 0; i < dataGridView1.RowCount; i++)
@@ -66,7 +73,8 @@ namespace Judo
             }
 
             else
-                SearchPanel.Visible = true;
+                //SearchPanel.Visible = true;
+                timer.Start();
         }
 
         private void BackBut_Click(object sender, EventArgs e)
@@ -164,8 +172,30 @@ namespace Judo
 
         private void EditBut_Click(object sender, EventArgs e)
         {
-            DataBase DB = new DataBase();
-            //DB.SendCommand("DELETE * FROM participants");
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (Hidden)
+            {
+                SearchPanel.Width = SearchPanel.Width + 20;
+                if (SearchPanel.Width >= panellogin)
+                {
+                    timer.Stop();
+                    Hidden = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                SearchPanel.Width = SearchPanel.Width - 20;
+                if (SearchPanel.Width <= 0)
+                {
+                    timer.Stop();
+                    Hidden = true;
+                    this.Refresh();
+                }
+            }
         }
     }
 }
