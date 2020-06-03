@@ -20,10 +20,9 @@ namespace Judo
         {
             InitializeComponent();
             SearchPanel.Visible = true;
-            EqualDGV();
-
             panellogin = SearchPanel.Width;
             Hidden = false;
+            EqualDGV();
         }
         private void EqualDGV()
         {
@@ -47,12 +46,11 @@ namespace Judo
             dataGridView1.Columns[6].Width = 300;
             dataGridView1.Columns[7].Width = 125;
             dataGridView1.Columns[8].Width = 85;
-            string a = dataGridView1.Rows[0].Cells[0].Value.ToString();
+            string a = dataGridView1.Rows[0].Cells[0].Value.ToString();            
         }
         private void SearchBut_Click(object sender, EventArgs e)
         {
             if (SearchPanel.Visible == true)
-                //SearchPanel.Visible = false;
                 timer.Start();
             else if (SearchPanel.Visible == false && SearchBox.Text != "")
             {
@@ -72,9 +70,7 @@ namespace Judo
                 //MessageBox.Show("Нy ты типо что-то нашел, молодец");
             }
 
-            else
-                //SearchPanel.Visible = true;
-                timer.Start();
+            else timer.Start();
         }
 
         private void BackBut_Click(object sender, EventArgs e)
@@ -172,6 +168,8 @@ namespace Judo
 
         private void EditBut_Click(object sender, EventArgs e)
         {
+            DataBase DB = new DataBase();
+            //DB.SendCommand("DELETE * FROM participants");
         }
 
         private void timer_Tick(object sender, EventArgs e)
