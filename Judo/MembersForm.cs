@@ -46,19 +46,21 @@ namespace Judo
             dataGridView1.Columns[6].Width = 300;
             dataGridView1.Columns[7].Width = 125;
             dataGridView1.Columns[8].Width = 85;
-            string a = dataGridView1.Rows[0].Cells[0].Value.ToString();            
+            string a = dataGridView1.Rows[0].Cells[0].Value.ToString();
         }
         private void SearchBut_Click(object sender, EventArgs e)
         {
-            if (SearchPanel.Visible == true)
-                timer.Start();
-            else if (SearchPanel.Visible == false && SearchBox.Text != "")
+            if (SearchPanel.Visible == false) timer.Start();
+            else if (SearchPanel.Visible == true && SearchBox.Text != "")
             {
+                timer.Stop();
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                 {
                     dataGridView1.Rows[i].Selected = false;
                     for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
                         if (dataGridView1.Rows[i].Cells[j].Value != null)
+                        {
                             if (dataGridView1.Rows[i].Cells[j].Value.ToString().Contains(SearchBox.Text))
                             {
                                 dataGridView1.Rows[i].Selected = true;
@@ -66,10 +68,10 @@ namespace Judo
                                 dataGridView1.FirstDisplayedScrollingColumnIndex = j;
                                 break;
                             }
+                        }
+                    }
                 }
-                //MessageBox.Show("Нy ты типо что-то нашел, молодец");
-            }
-
+            } 
             else timer.Start();
         }
 

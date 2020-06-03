@@ -35,14 +35,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Пол = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Город_рождения = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Клуб = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditBut = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
@@ -90,15 +82,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Имя,
-            this.Фамилия,
-            this.Пол,
-            this.Год,
-            this.Город_рождения,
-            this.Место_проживания,
-            this.Клуб,
-            this.Вес});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.25F);
@@ -124,54 +107,6 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(779, 394);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // Имя
-            // 
-            this.Имя.HeaderText = "Имя";
-            this.Имя.Name = "Имя";
-            this.Имя.Width = 95;
-            // 
-            // Фамилия
-            // 
-            this.Фамилия.HeaderText = "Фамилия";
-            this.Фамилия.Name = "Фамилия";
-            this.Фамилия.Width = 125;
-            // 
-            // Пол
-            // 
-            this.Пол.HeaderText = "Пол";
-            this.Пол.Name = "Пол";
-            this.Пол.Width = 35;
-            // 
-            // Год
-            // 
-            this.Год.HeaderText = "Год";
-            this.Год.Name = "Год";
-            this.Год.Width = 85;
-            // 
-            // Город_рождения
-            // 
-            this.Город_рождения.HeaderText = "Город рождения";
-            this.Город_рождения.Name = "Город_рождения";
-            this.Город_рождения.Width = 150;
-            // 
-            // Место_проживания
-            // 
-            this.Место_проживания.HeaderText = "Место проживания";
-            this.Место_проживания.Name = "Место_проживания";
-            this.Место_проживания.Width = 300;
-            // 
-            // Клуб
-            // 
-            this.Клуб.HeaderText = "Клуб";
-            this.Клуб.Name = "Клуб";
-            this.Клуб.Width = 125;
-            // 
-            // Вес
-            // 
-            this.Вес.HeaderText = "Вес";
-            this.Вес.Name = "Вес";
-            this.Вес.Width = 85;
             // 
             // EditBut
             // 
@@ -330,14 +265,6 @@
         private System.Windows.Forms.Panel SearchPanel;
         private System.Windows.Forms.PictureBox CloseBox;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Имя;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Фамилия;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Пол;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Год;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Город_рождения;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Место_проживания;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Клуб;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
         private System.Windows.Forms.Timer timer;
     }
 }
