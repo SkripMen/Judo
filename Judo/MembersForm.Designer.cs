@@ -99,7 +99,7 @@
             this.Вес});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.25F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -242,25 +242,25 @@
             // 
             this.Имя.HeaderText = "Имя";
             this.Имя.Name = "Имя";
-            this.Имя.Width = 103;
+            this.Имя.Width = 95;
             // 
             // Фамилия
             // 
             this.Фамилия.HeaderText = "Фамилия";
             this.Фамилия.Name = "Фамилия";
-            this.Фамилия.Width = 150;
+            this.Фамилия.Width = 125;
             // 
             // Пол
             // 
             this.Пол.HeaderText = "Пол";
             this.Пол.Name = "Пол";
-            this.Пол.Width = 50;
+            this.Пол.Width = 35;
             // 
             // Год
             // 
             this.Год.HeaderText = "Год";
             this.Год.Name = "Год";
-            this.Год.Width = 75;
+            this.Год.Width = 85;
             // 
             // Город_рождения
             // 
@@ -278,13 +278,13 @@
             // 
             this.Клуб.HeaderText = "Клуб";
             this.Клуб.Name = "Клуб";
-            this.Клуб.Width = 175;
+            this.Клуб.Width = 125;
             // 
             // Вес
             // 
             this.Вес.HeaderText = "Вес";
             this.Вес.Name = "Вес";
-            this.Вес.Width = 75;
+            this.Вес.Width = 85;
             // 
             // MembersForm
             // 
