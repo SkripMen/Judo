@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Пол = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Город_рождения = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Клуб = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditBut = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
@@ -44,14 +53,7 @@
             this.SearchBut = new System.Windows.Forms.PictureBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
-            this.Имя = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Фамилия = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Пол = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Год = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Город_рождения = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Место_проживания = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Клуб = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -79,14 +81,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial", 10.25F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Имя,
@@ -97,31 +99,79 @@
             this.Место_проживания,
             this.Клуб,
             this.Вес});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 10.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Arial", 10.25F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(11, 107);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 10.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 10.25F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(779, 394);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // Имя
+            // 
+            this.Имя.HeaderText = "Имя";
+            this.Имя.Name = "Имя";
+            this.Имя.Width = 95;
+            // 
+            // Фамилия
+            // 
+            this.Фамилия.HeaderText = "Фамилия";
+            this.Фамилия.Name = "Фамилия";
+            this.Фамилия.Width = 125;
+            // 
+            // Пол
+            // 
+            this.Пол.HeaderText = "Пол";
+            this.Пол.Name = "Пол";
+            this.Пол.Width = 35;
+            // 
+            // Год
+            // 
+            this.Год.HeaderText = "Год";
+            this.Год.Name = "Год";
+            this.Год.Width = 85;
+            // 
+            // Город_рождения
+            // 
+            this.Город_рождения.HeaderText = "Город рождения";
+            this.Город_рождения.Name = "Город_рождения";
+            this.Город_рождения.Width = 150;
+            // 
+            // Место_проживания
+            // 
+            this.Место_проживания.HeaderText = "Место проживания";
+            this.Место_проживания.Name = "Место_проживания";
+            this.Место_проживания.Width = 300;
+            // 
+            // Клуб
+            // 
+            this.Клуб.HeaderText = "Клуб";
+            this.Клуб.Name = "Клуб";
+            this.Клуб.Width = 125;
+            // 
+            // Вес
+            // 
+            this.Вес.HeaderText = "Вес";
+            this.Вес.Name = "Вес";
+            this.Вес.Width = 85;
             // 
             // EditBut
             // 
@@ -184,9 +234,9 @@
             // 
             // SearchPanel
             // 
-            this.SearchPanel.Location = new System.Drawing.Point(497, 73);
+            this.SearchPanel.Location = new System.Drawing.Point(509, 73);
             this.SearchPanel.Name = "SearchPanel";
-            this.SearchPanel.Size = new System.Drawing.Size(272, 28);
+            this.SearchPanel.Size = new System.Drawing.Size(259, 28);
             this.SearchPanel.TabIndex = 6;
             this.SearchPanel.Visible = false;
             this.SearchPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchPanel_MouseDown);
@@ -238,53 +288,10 @@
             this.TextPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseDown);
             this.TextPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TextPanel_MouseMove);
             // 
-            // Имя
+            // timer
             // 
-            this.Имя.HeaderText = "Имя";
-            this.Имя.Name = "Имя";
-            this.Имя.Width = 95;
-            // 
-            // Фамилия
-            // 
-            this.Фамилия.HeaderText = "Фамилия";
-            this.Фамилия.Name = "Фамилия";
-            this.Фамилия.Width = 125;
-            // 
-            // Пол
-            // 
-            this.Пол.HeaderText = "Пол";
-            this.Пол.Name = "Пол";
-            this.Пол.Width = 35;
-            // 
-            // Год
-            // 
-            this.Год.HeaderText = "Год";
-            this.Год.Name = "Год";
-            this.Год.Width = 85;
-            // 
-            // Город_рождения
-            // 
-            this.Город_рождения.HeaderText = "Город рождения";
-            this.Город_рождения.Name = "Город_рождения";
-            this.Город_рождения.Width = 150;
-            // 
-            // Место_проживания
-            // 
-            this.Место_проживания.HeaderText = "Место проживания";
-            this.Место_проживания.Name = "Место_проживания";
-            this.Место_проживания.Width = 300;
-            // 
-            // Клуб
-            // 
-            this.Клуб.HeaderText = "Клуб";
-            this.Клуб.Name = "Клуб";
-            this.Клуб.Width = 125;
-            // 
-            // Вес
-            // 
-            this.Вес.HeaderText = "Вес";
-            this.Вес.Name = "Вес";
-            this.Вес.Width = 85;
+            this.timer.Interval = 5;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MembersForm
             // 
@@ -330,5 +337,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Место_проживания;
         private System.Windows.Forms.DataGridViewTextBoxColumn Клуб;
         private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
+        private System.Windows.Forms.Timer timer;
     }
 }
