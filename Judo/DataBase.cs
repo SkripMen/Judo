@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
+using System.Data;
 
 namespace Judo
 {
@@ -17,7 +18,7 @@ namespace Judo
             OleDbCommand DBCommand = DBConnection.CreateCommand();
 
             DBCommand.CommandText = command;
-
+            
             OleDbDataReader DBDataReader = DBCommand.ExecuteReader();
 
             DBDataReader.Read();
@@ -31,6 +32,6 @@ namespace Judo
             DBDataReader.Close();
             DBConnection.Close();
             return Rows;
-        }                
+        }
     }
 }

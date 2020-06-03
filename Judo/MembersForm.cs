@@ -75,38 +75,48 @@ namespace Judo
         {
             dataGridView1.AllowUserToAddRows = false;
             OpenFileDialog OPF = new OpenFileDialog();
+            DataBase DB = new DataBase();
             OPF.Filter = "Файлы txt|*.txt|Файлы cs|*.csv";
             if (OPF.ShowDialog() == DialogResult.OK)
             {
                 string[] FileLines = File.ReadAllLines(OPF.FileName);
-                int i = 0;
-                int peri = dataGridView1.Rows.Count;
-                i += peri;
-                for (; i < FileLines.Length+peri; i++)
+                string[] OneLine = new string[8];                
+                for (int i = 0; i < FileLines.Length; i++)
                 {
-                    dataGridView1.Rows.Add();
-                    string[] RowsF = FileLines[i-peri].Split(new char[] { ',', ';', ':' }, StringSplitOptions.RemoveEmptyEntries);
-                    dataGridView1.Rows[i].Cells["Имя"].Value = RowsF[0].Trim();
-                    dataGridView1.Rows[i].Cells["Фамилия"].Value = RowsF[1].Trim();
-                    dataGridView1.Rows[i].Cells["Пол"].Value = RowsF[2].Trim();
-                    dataGridView1.Rows[i].Cells["Год"].Value = RowsF[3].Trim();
-                    dataGridView1.Rows[i].Cells["Город_рождения"].Value = RowsF[4].Trim();
+                    string[] RowsF = FileLines[i].Split(new char[] { ',', ';', ':' }, StringSplitOptions.RemoveEmptyEntries);
+                    OneLine[0] = RowsF[0].Trim();
+                    OneLine[1] = RowsF[1].Trim();
+                    OneLine[2] = RowsF[2].Trim();
+                    OneLine[3] = RowsF[3].Trim();
+                    OneLine[4] = RowsF[4].Trim();
                     int LastI = RowsF[RowsF.Length - 1].LastIndexOf(' ');
-                    dataGridView1.Rows[i].Cells["Вес"].Value = RowsF[RowsF.Length - 1].Substring(LastI, RowsF[RowsF.Length - 1].Length - LastI).Trim();
+                    OneLine[7] = RowsF[RowsF.Length - 1].Substring(LastI, RowsF[RowsF.Length - 1].Length - LastI).Trim();
                     if (RowsF.Length == 7)
                     {
-                        dataGridView1.Rows[i].Cells["Клуб"].Value = RowsF[6].Substring(0, LastI).Trim();
-                        dataGridView1.Rows[i].Cells["Место_проживания"].Value = RowsF[5].Trim();
+                        OneLine[6] = RowsF[6].Substring(0, LastI).Trim();
+                        OneLine[5] = RowsF[5].Trim();
                     }
-                    else dataGridView1.Rows[i].Cells["Место_проживания"].Value = RowsF[5].Substring(0, LastI).Trim();
-                    foreach (DataGridViewCell item in dataGridView1.Rows[i].Cells)
+                    else OneLine[5] = RowsF[5].Substring(0, LastI).Trim();
+                    for (int b = 0; b < OneLine.Length; b++)
                     {
-                        if (item.Value == null || item.Value == "")
+                        if (OneLine[b] == null || OneLine[b] == "")
                         {
-                            item.Value = "Не указано";
+                            OneLine[b] = "Не указано";
                         }
-
                     }
+                    // fName   Surname Gender  Birthday Birthtown   Locations Sportsclub  Weight
+                    DB.SendCommand(String.Format(
+                        "INSERT INTO participants (fName, Surname, Gender, Birthday, Birthtown, Locations, Sportsclub, Weight)" +
+                        " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
+                        OneLine[0],                        
+                        OneLine[1],                        
+                        OneLine[2],                        
+                        OneLine[3],                        
+                        OneLine[4],                        
+                        OneLine[5],                        
+                        OneLine[6],                        
+                        OneLine[7]                        
+                        ));
                 }
                 dataGridView1.AllowUserToAddRows = true;
             }
@@ -114,7 +124,6 @@ namespace Judo
 
         private void EditBut_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
         }
     }
 }
