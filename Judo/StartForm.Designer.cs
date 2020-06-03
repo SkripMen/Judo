@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.CloseBut = new System.Windows.Forms.PictureBox();
             this.Title = new System.Windows.Forms.Label();
@@ -341,11 +342,12 @@
             this.Controls.Add(this.LoginPanel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(420, 440);
             this.MinimumSize = new System.Drawing.Size(420, 440);
             this.Name = "StartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StratForm";
+            this.Text = "Judo | Авторизация";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).EndInit();

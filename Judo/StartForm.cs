@@ -91,7 +91,7 @@ namespace Judo
             String passwordRep = PasswordRepeatInput.Text;
             Boolean visible = false;
             HashClass hash = new HashClass();
-            if (password != passwordRep)
+            if (password != passwordRep || password.Length == 0)
             {
                 ErrorText2.Visible = true;
                 visible = true;
