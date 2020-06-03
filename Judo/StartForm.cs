@@ -60,7 +60,7 @@ namespace Judo
         {
             if (Hidden)
             {
-                LoginPanel.Width = LoginPanel.Width + 15;
+                LoginPanel.Width = LoginPanel.Width + 20;
                 if (LoginPanel.Width >= panellogin)
                 {
                     timer.Stop();
@@ -72,7 +72,7 @@ namespace Judo
             }
             else
             {
-                LoginPanel.Width = LoginPanel.Width - 15;
+                LoginPanel.Width = LoginPanel.Width - 20;
                 if (LoginPanel.Width <= 0)
                 {
                     timer.Stop();
