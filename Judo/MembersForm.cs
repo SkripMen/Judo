@@ -17,14 +17,54 @@ namespace Judo
         {
             InitializeComponent();
             SearchPanel.Visible = true;
+            EqualDGV();
         }
-
+        private void EqualDGV()
+        {
+            DataBase DB = new DataBase();
+            DataSet ds = DB.DGView("SELECT * FROM participants;");
+            ds.Tables[0].Columns[1].ColumnName = "Имя";
+            ds.Tables[0].Columns[2].ColumnName = "Фамилия";
+            ds.Tables[0].Columns[3].ColumnName = "Пол";
+            ds.Tables[0].Columns[4].ColumnName = "Год";
+            ds.Tables[0].Columns[5].ColumnName = "Город рождения";
+            ds.Tables[0].Columns[6].ColumnName = "Место проживания";
+            ds.Tables[0].Columns[7].ColumnName = "Клуб";
+            ds.Tables[0].Columns[8].ColumnName = "Вес";
+            dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Width = 95;
+            dataGridView1.Columns[2].Width = 125;
+            dataGridView1.Columns[3].Width = 35;
+            dataGridView1.Columns[4].Width = 85;
+            dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[6].Width = 300;
+            dataGridView1.Columns[7].Width = 125;
+            dataGridView1.Columns[8].Width = 85;
+            string a = dataGridView1.Rows[0].Cells[0].Value.ToString();
+        }
         private void SearchBut_Click(object sender, EventArgs e)
         {
             if (SearchPanel.Visible == true)
                 SearchPanel.Visible = false;
             else if (SearchPanel.Visible == false && SearchBox.Text != "")
-                MessageBox.Show("Нy ты типо что-то нашел, молодец");
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    dataGridView1.Rows[i].Selected = false;
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                        if (dataGridView1.Rows[i].Cells[j].Value != null)
+                            if (dataGridView1.Rows[i].Cells[j].Value.ToString().Contains(SearchBox.Text))
+                            {
+                                dataGridView1.Rows[i].Selected = true;
+                                dataGridView1.FirstDisplayedScrollingRowIndex = i;
+                                dataGridView1.FirstDisplayedScrollingColumnIndex = j;
+                                break;
+                            }
+                }
+                //MessageBox.Show("Нy ты типо что-то нашел, молодец");
+            }
+
             else
                 SearchPanel.Visible = true;
         }
@@ -73,16 +113,16 @@ namespace Judo
 
         private void ImportBut_Click(object sender, EventArgs e)
         {
-            dataGridView1.AllowUserToAddRows = false;
             OpenFileDialog OPF = new OpenFileDialog();
             DataBase DB = new DataBase();
             OPF.Filter = "Файлы txt|*.txt|Файлы cs|*.csv";
             if (OPF.ShowDialog() == DialogResult.OK)
             {
                 string[] FileLines = File.ReadAllLines(OPF.FileName);
-                string[] OneLine = new string[8];                
+                string[] OneLine = new string[8];
                 for (int i = 0; i < FileLines.Length; i++)
                 {
+                    FileLines[i] = FileLines[i].Replace("\'", "`");
                     string[] RowsF = FileLines[i].Split(new char[] { ',', ';', ':' }, StringSplitOptions.RemoveEmptyEntries);
                     OneLine[0] = RowsF[0].Trim();
                     OneLine[1] = RowsF[1].Trim();
@@ -108,22 +148,24 @@ namespace Judo
                     DB.SendCommand(String.Format(
                         "INSERT INTO participants (fName, Surname, Gender, Birthday, Birthtown, Locations, Sportsclub, Weight)" +
                         " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
-                        OneLine[0],                        
-                        OneLine[1],                        
-                        OneLine[2],                        
-                        OneLine[3],                        
-                        OneLine[4],                        
-                        OneLine[5],                        
-                        OneLine[6],                        
-                        OneLine[7]                        
+                        OneLine[0],
+                        OneLine[1],
+                        OneLine[2],
+                        OneLine[3],
+                        OneLine[4],
+                        OneLine[5],
+                        OneLine[6],
+                        OneLine[7]
                         ));
                 }
-                dataGridView1.AllowUserToAddRows = true;
+                EqualDGV();
             }
         }
 
         private void EditBut_Click(object sender, EventArgs e)
         {
+            DataBase DB = new DataBase();
+            //DB.SendCommand("DELETE * FROM participants");
         }
     }
 }

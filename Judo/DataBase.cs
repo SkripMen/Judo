@@ -33,5 +33,12 @@ namespace Judo
             DBConnection.Close();
             return Rows;
         }
+        public DataSet DGView(string command)
+        {
+            OleDbDataAdapter dataAdapter = new OleDbDataAdapter(command, DBConnection);
+            DataSet ds = new DataSet();
+            dataAdapter.Fill(ds, "participants");
+            return ds;
+        }
     }
 }
