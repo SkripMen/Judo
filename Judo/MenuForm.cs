@@ -12,20 +12,21 @@ namespace Judo
 {
     public partial class MenuForm : Form
     {
+        int panelset;
+        bool Hidden;
         public MenuForm()
         {
             InitializeComponent();
-            SettingsPanel.Visible = false;
+            //SettingsPanel.Visible = false;
+            panelset = SettingsPanel.Width;
+            Hidden = false;
         }
 
         Point lastPoint;
 
         private void Settings_Click(object sender, EventArgs e)
         {
-            if(SettingsPanel.Visible == false)
-                SettingsPanel.Visible = true;
-            else
-                SettingsPanel.Visible = false;
+            timer.Start();
         }
 
         private void MainPanel_MouseDown(object sender, MouseEventArgs e)
@@ -80,6 +81,44 @@ namespace Judo
         private void CloseBut_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (Hidden)
+            {
+                SettingsPanel.Width = SettingsPanel.Width - 15;
+                if (SettingsPanel.Width <= 0)
+                {
+                    timer.Stop();
+                    Hidden = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                SettingsPanel.Width = SettingsPanel.Width + 15;
+                if (SettingsPanel.Width >= 145)
+                {
+                    timer.Stop();
+                    Hidden = true;
+                    this.Refresh();
+                }
+            }
+        }
+
+        private void PartyBut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProgBar progBar = new ProgBar();
+            progBar.Show();
+        }
+
+        private void TatamiBut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TatamiForm tatamiForm = new TatamiForm();
+            tatamiForm.Show();
         }
     }
 }
