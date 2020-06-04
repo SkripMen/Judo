@@ -191,7 +191,7 @@ namespace Judo
                             OneLine[4] = RowsF[5].Trim();
                             OneLine[5] = RowsF[6].Trim() + RowsF[7].Trim();
                             OneLine[6] = RowsF[8].Trim();
-                            OneLine[7] = RowsF[9].Trim();                           
+                            OneLine[7] = RowsF[9].Trim();
                             for (int b = 0; b < OneLine.Length; b++)
                             {
                                 if (OneLine[b] == null || OneLine[b] == "")
@@ -213,7 +213,9 @@ namespace Judo
                                 ));
                         }
                         break;
-                    case "xlsx": break;
+                    case "xlsx":
+                        DB.Excel(OPF.FileName);
+                        break;
                 }
                 EqualDGV();
             }
@@ -222,7 +224,7 @@ namespace Judo
         private void EditBut_Click(object sender, EventArgs e)
         {
             DataBase DB = new DataBase();
-            //DB.SendCommand("DELETE * FROM participants");
+            DB.SendCommand("DELETE * FROM participants");
         }
 
         private void timer_Tick(object sender, EventArgs e)
