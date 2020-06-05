@@ -73,7 +73,6 @@ namespace Judo
 
         private void ChangePas_Click(object sender, EventArgs e)
         {
-            SettingsPanel.Visible = false;
             ChangeForm changeForm = new ChangeForm();
             changeForm.Show();
         }
@@ -110,8 +109,8 @@ namespace Judo
         private void PartyBut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ProgBar progBar = new ProgBar();
-            progBar.Show();
+            DayForm dayForm = new DayForm();
+            dayForm.Show();
         }
 
         private void TatamiBut_Click(object sender, EventArgs e)
