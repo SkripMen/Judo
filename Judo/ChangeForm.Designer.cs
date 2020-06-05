@@ -97,6 +97,7 @@
             this.ChangeBut.TabIndex = 7;
             this.ChangeBut.Text = "Изменить";
             this.ChangeBut.UseVisualStyleBackColor = true;
+            this.ChangeBut.Click += new System.EventHandler(this.ChangeBut_Click);
             // 
             // label4
             // 
@@ -112,7 +113,7 @@
             // PasNewRepBox
             // 
             this.PasNewRepBox.Font = new System.Drawing.Font("Arial", 16.25F);
-            this.PasNewRepBox.ForeColor = System.Drawing.Color.White;
+            this.PasNewRepBox.ForeColor = System.Drawing.Color.Black;
             this.PasNewRepBox.Location = new System.Drawing.Point(55, 259);
             this.PasNewRepBox.Name = "PasNewRepBox";
             this.PasNewRepBox.Size = new System.Drawing.Size(287, 32);
@@ -132,7 +133,7 @@
             // PasNewBox
             // 
             this.PasNewBox.Font = new System.Drawing.Font("Arial", 16.25F);
-            this.PasNewBox.ForeColor = System.Drawing.Color.White;
+            this.PasNewBox.ForeColor = System.Drawing.Color.Black;
             this.PasNewBox.Location = new System.Drawing.Point(55, 203);
             this.PasNewBox.Name = "PasNewBox";
             this.PasNewBox.Size = new System.Drawing.Size(287, 32);
@@ -152,7 +153,7 @@
             // PasOllBox
             // 
             this.PasOllBox.Font = new System.Drawing.Font("Arial", 16.25F);
-            this.PasOllBox.ForeColor = System.Drawing.Color.White;
+            this.PasOllBox.ForeColor = System.Drawing.Color.Black;
             this.PasOllBox.Location = new System.Drawing.Point(55, 147);
             this.PasOllBox.Name = "PasOllBox";
             this.PasOllBox.Size = new System.Drawing.Size(287, 32);

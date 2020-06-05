@@ -51,5 +51,33 @@ namespace Judo
                 this.Top += e.Y - lastPoint.Y;
             }
         }
+
+        private void ChangeBut_Click(object sender, EventArgs e)
+        {
+            String passOld = PasOllBox.Text;
+            String passNew = PasNewBox.Text;
+            String passNew2 = PasNewRepBox.Text;
+            Boolean visible = false;
+            HashClass hash = new HashClass();
+            DataBase db = new DataBase();
+
+            if (passNew != passNew2 || passNew.Length == 0)
+            {
+
+                ErrorText.Visible = true;
+                visible = true;
+            }
+            else
+            {
+                ErrorText.Visible = false;
+                visible = false;
+            }
+            /*
+            if (хз что тут писать)
+            {
+                db.SendCommand(String.Format("UPDATE users SET hash='{0}'", hash.HashPassword(PasNewBox.Text)));
+                this.Hide();
+            }*/
+        }
     }
 }
