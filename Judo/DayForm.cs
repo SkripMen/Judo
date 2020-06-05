@@ -16,5 +16,11 @@ namespace Judo
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataBase DB = new DataBase();
+            DB.SendCommand("");
+        }
     }
 }
