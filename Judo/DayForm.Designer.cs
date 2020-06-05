@@ -34,6 +34,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.DatePicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -70,6 +71,14 @@
             this.button1.Text = "Enter";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // DatePicker
+            // 
+            this.DatePicker.Location = new System.Drawing.Point(12, 23);
+            this.DatePicker.Name = "DatePicker";
+            this.DatePicker.Size = new System.Drawing.Size(200, 26);
+            this.DatePicker.TabIndex = 4;
             // 
             // DayForm
             // 
@@ -77,6 +86,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(500, 100);
+            this.Controls.Add(this.DatePicker);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -97,5 +107,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker DatePicker;
     }
 }
