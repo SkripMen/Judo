@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Data.Common;
 
 namespace Judo
 {
@@ -23,7 +24,7 @@ namespace Judo
             OleDbDataReader DBDataReader = DBCommand.ExecuteReader();
 
             DBDataReader.Read();
-            object[] Rows = new object[DBDataReader.FieldCount];
+            object[][] Rows = new object[DBDataReader.FieldCount][];
             //string data = DBDataReader["hash"].ToString();
             if (DBDataReader.HasRows)
             {
