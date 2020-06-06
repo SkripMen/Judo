@@ -23,7 +23,11 @@ namespace Judo
         {
             DataBase DB = new DataBase();
             DataSet bd = DB.DGView("SELECT * FROM participants;");
-
+            for (int i = 0; i < 4; i++)
+            {
+                string command = String.Format("DROP TABLE Group{0}", i + 1);
+                DB.SendCommand(command);
+            }
             object[,] BDTable = new object[bd.Tables[0].Rows.Count, bd.Tables[0].Columns.Count];
             foreach (DataTable dt in bd.Tables)
             {
@@ -167,6 +171,60 @@ namespace Judo
             for (int i = 0; min + i * 3 < max; i++)
             {
                 MassCD[i] = sort(Arr, min + i * 3);
+            }
+
+            for (int i = 0; i < MassCD.Length; i++)
+            {
+                if (MassCD[i].GetLength(0) > 6)
+                {
+                    count = 1;
+                    int Maxx = MassCD[i].GetLength(0);
+                    while (Maxx - 6 > 0)
+                    {
+                        Maxx -= 6;
+                        ++count;
+                    }
+                    Maxx = MassCD[i].GetLength(0);
+                    object[][,] tempArr = new object[count][,];
+                    int d = 0;
+                    for (int c = 0; c < tempArr.Length; c++)
+                    {
+                        
+                        int l = 0;
+                        if (Maxx - 6 > 0)
+                        {
+                            count = 6;
+                            Maxx -= 6;
+                        }
+                        else count = Maxx;                        
+                        tempArr[c] = new object[count, 9];
+                        for (; d < MassCD[i].GetLength(0); d++)
+                        {
+                            for (int k = 0; k < MassCD[i].GetLength(1); k++)
+                            {
+                                tempArr[c][l, k] = MassCD[i][d, k];
+                            }
+                            if (l == tempArr[c].GetLength(0)-1)
+                            {
+                                break;
+                            }
+                            ++l;
+                        }
+                        
+                    }
+                    Array.Resize(ref MassCD, MassCD.Length + tempArr.Length - 1);
+                    MassCD[i] = tempArr[0];
+                    d = 1;
+                    for (int b = 0; b < MassCD.Length; b++)
+                    {
+                        if (MassCD[b] == null)
+                        {
+                            MassCD[b] = tempArr[d];
+                            ++d;
+                        }
+                    }
+                }
+               
             }
             return MassCD;
 

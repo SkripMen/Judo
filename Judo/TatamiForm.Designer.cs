@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TatamiForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxLGroup = new System.Windows.Forms.ComboBox();
+            this.comboBoxSGroup = new System.Windows.Forms.ComboBox();
             this.TextPanel = new System.Windows.Forms.Label();
             this.CloseBut = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,6 +55,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            this.panel1.Controls.Add(this.comboBoxLGroup);
+            this.panel1.Controls.Add(this.comboBoxSGroup);
             this.panel1.Controls.Add(this.TextPanel);
             this.panel1.Controls.Add(this.CloseBut);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -62,6 +66,29 @@
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // comboBoxLGroup
+            // 
+            this.comboBoxLGroup.FormattingEnabled = true;
+            this.comboBoxLGroup.Items.AddRange(new object[] {
+            "Девочки от 8 до 10",
+            "Девочки от 10 до 12",
+            "Мальчики от 8 до 10",
+            "Мальчики от 10 до 12"});
+            this.comboBoxLGroup.Location = new System.Drawing.Point(648, 44);
+            this.comboBoxLGroup.Name = "comboBoxLGroup";
+            this.comboBoxLGroup.Size = new System.Drawing.Size(140, 22);
+            this.comboBoxLGroup.TabIndex = 7;
+            this.comboBoxLGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxLGroup_SelectedIndexChanged);
+            // 
+            // comboBoxSGroup
+            // 
+            this.comboBoxSGroup.FormattingEnabled = true;
+            this.comboBoxSGroup.Location = new System.Drawing.Point(648, 72);
+            this.comboBoxSGroup.Name = "comboBoxSGroup";
+            this.comboBoxSGroup.Size = new System.Drawing.Size(140, 22);
+            this.comboBoxSGroup.TabIndex = 6;
+            this.comboBoxSGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxSGroup_SelectedIndexChanged);
             // 
             // TextPanel
             // 
@@ -236,5 +263,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
         private System.Windows.Forms.DataGridViewTextBoxColumn Возраст;
         private System.Windows.Forms.DataGridViewTextBoxColumn Очки;
+        private System.Windows.Forms.ComboBox comboBoxSGroup;
+        private System.Windows.Forms.ComboBox comboBoxLGroup;
     }
 }
