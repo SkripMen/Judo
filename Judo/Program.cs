@@ -16,7 +16,7 @@ namespace Judo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DayForm());
+            Application.Run(new MenuForm());
         }
     }
 }

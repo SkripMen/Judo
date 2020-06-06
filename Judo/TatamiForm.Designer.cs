@@ -68,9 +68,9 @@
             this.TextPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
             this.TextPanel.Font = new System.Drawing.Font("Arial", 32.25F);
             this.TextPanel.ForeColor = System.Drawing.Color.White;
-            this.TextPanel.Location = new System.Drawing.Point(327, 28);
+            this.TextPanel.Location = new System.Drawing.Point(315, 28);
             this.TextPanel.Name = "TextPanel";
-            this.TextPanel.Size = new System.Drawing.Size(146, 44);
+            this.TextPanel.Size = new System.Drawing.Size(170, 44);
             this.TextPanel.TabIndex = 4;
             this.TextPanel.Text = "Татами";
             this.TextPanel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
