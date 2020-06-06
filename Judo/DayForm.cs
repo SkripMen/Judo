@@ -48,30 +48,59 @@ namespace Judo
                 sort(GroupM, "8", dateTimePicker1.Value.Date),
                 sort(GroupM, "10", dateTimePicker1.Value.Date)
             };
-            if (SLFSLM[0].GetLength(0) != 0)
+            object[][][,] HL = new object[4][][,];
+            for (int i = 0; i < SLFSLM.Length; i++)
             {
-                object[][,] SF = MinMax(SLFSLM[0]);
+                if (SLFSLM[i].GetLength(0) != 0)
+                {
+                    HL[i] = MinMax(SLFSLM[i]);
+                }
             }
-            if (SLFSLM[1].GetLength(0) != 0)
+            for (int i = 0; i < HL.Length; i++)
             {
-                object[][,] LF = MinMax(SLFSLM[1]);
+                if (HL[i] != null)
+                {
+                    int count = 0;
+                    for (int b = 0; b < HL[i].Length; b++)
+                    {
+                        if (HL[i][b].GetLength(0) > 1)
+                        {
+                            ++count;
+                        }
+                    }
+                    object[][,] temp = new object[count][,];
+                    count = 0;
+                    for (int b = 0; b < HL[i].Length; b++)
+                    {
+                        if (HL[i][b].GetLength(0) > 1)
+                        {
+                            temp[count] = HL[i][b];
+                            ++count;
+                        }
+                    }
+                    HL[i] = temp;
+                }
             }
-            if (SLFSLM[2].GetLength(0) != 0)
+            for (int i = 0; i < HL.Length; i++)
             {
-                object[][,] SM = MinMax(SLFSLM[2]);
+                string command = String.Format("CREATE TABLE Group{0} (idLg INT NOT NULL, idSg INT NOT NULL);", i + 1);
+                //string command = String.Format("DROP TABLE Group{0}", i + 1);
+                DB.SendCommand(command);
+                if (HL[i] != null)
+                {
+                    for (int b = 0; b < HL[i].Length; b++)
+                    {
+                        for (int c = 0; c < HL[i][b].GetLength(0); c++)
+                        {
+                            command = String.Format("INSERT INTO Group{0} VALUES('{1}', '{2}');", i + 1, b, HL[i][b][c, 0]);
+                            DB.SendCommand(command);
+                        }
+                    }
+                }
             }
-            if (SLFSLM[3].GetLength(0) != 0)
-            {
-                object[][,] LM = MinMax(SLFSLM[3]);
-            }
-
-
-
-
-
-
-
-
+            this.Hide();
+            TatamiForm tatamiForm = new TatamiForm();
+            tatamiForm.Show();
         }
 
         private object[,] sort(object[,] arr, int minfilter)
@@ -129,7 +158,7 @@ namespace Judo
                     }
                 }
             }
-            int count = 1;
+            int count = 0;
             for (int i = min; i < max; i += 3)
             {
                 ++count;
