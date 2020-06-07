@@ -39,7 +39,6 @@
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LoxBoxMem = new System.Windows.Forms.TextBox();
             this.CloseBox = new System.Windows.Forms.PictureBox();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -149,7 +148,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
-            this.panel2.Controls.Add(this.LoxBoxMem);
             this.panel2.Controls.Add(this.CloseBox);
             this.panel2.Controls.Add(this.SearchPanel);
             this.panel2.Controls.Add(this.panel3);
@@ -159,14 +157,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 100);
             this.panel2.TabIndex = 0;
-            // 
-            // LoxBoxMem
-            // 
-            this.LoxBoxMem.Location = new System.Drawing.Point(28, 26);
-            this.LoxBoxMem.Name = "LoxBoxMem";
-            this.LoxBoxMem.Size = new System.Drawing.Size(100, 20);
-            this.LoxBoxMem.TabIndex = 8;
-            this.LoxBoxMem.Visible = false;
             // 
             // CloseBox
             // 
@@ -258,7 +248,6 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -282,6 +271,5 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.CheckBox EditBox;
-        public System.Windows.Forms.TextBox LoxBoxMem;
     }
 }

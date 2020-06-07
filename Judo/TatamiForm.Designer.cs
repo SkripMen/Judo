@@ -200,9 +200,9 @@
             this.label3.Font = new System.Drawing.Font("Arial", 10.25F);
             this.label3.Location = new System.Drawing.Point(577, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 16);
+            this.label3.Size = new System.Drawing.Size(57, 16);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Группа";
+            this.label3.Text = "Татами";
             // 
             // label2
             // 

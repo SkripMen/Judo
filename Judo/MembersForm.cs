@@ -30,6 +30,7 @@ namespace Judo
         private void EqualDGV()
         {
             EditBox.Visible = !is_guest;
+            ImportBut.Visible = !is_guest;
             DataBase DB = new DataBase();
             DataSet ds = DB.DGView("SELECT * FROM participants;");
             ds.Tables[0].Columns[1].ColumnName = "Имя";
@@ -166,7 +167,7 @@ namespace Judo
         {
             OpenFileDialog OPF = new OpenFileDialog();
             DataBase DB = new DataBase();
-            OPF.Filter = "Файлы txt|*.txt|Файлы cs|*.csv|Файлы xlsx|*.xlsx";
+            OPF.Filter = "Файлы txt|*.txt|Файлы csv|*.csv|Файлы xlsx|*.xlsx|Все файлы|*.*";
             if (OPF.ShowDialog() == DialogResult.OK)
             {
                 string[] FileLines = File.ReadAllLines(OPF.FileName);

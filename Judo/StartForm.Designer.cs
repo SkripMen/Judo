@@ -55,7 +55,6 @@
             this.LoginInput = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.LoxBoxLog = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
             this.LoginPanel.SuspendLayout();
@@ -104,7 +103,6 @@
             // LoginPanel
             // 
             this.LoginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
-            this.LoginPanel.Controls.Add(this.LoxBoxLog);
             this.LoginPanel.Controls.Add(this.LoxBur);
             this.LoginPanel.Controls.Add(this.ErrorText);
             this.LoginPanel.Controls.Add(this.RegisterBut);
@@ -353,15 +351,6 @@
             this.timer.Interval = 15;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // LoxBoxLog
-            // 
-            this.LoxBoxLog.Location = new System.Drawing.Point(22, 295);
-            this.LoxBoxLog.Name = "LoxBoxLog";
-            this.LoxBoxLog.Size = new System.Drawing.Size(100, 20);
-            this.LoxBoxLog.TabIndex = 16;
-            this.LoxBoxLog.Text = "гость";
-            this.LoxBoxLog.Visible = false;
-            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,6 +406,5 @@
         private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.Timer timer;
         public System.Windows.Forms.Label LoxBur;
-        private System.Windows.Forms.TextBox LoxBoxLog;
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.MainPanel = new System.Windows.Forms.Panel();
-            this.LoxBoxMenu = new System.Windows.Forms.TextBox();
             this.LoxText = new System.Windows.Forms.Label();
             this.TatamiBut = new System.Windows.Forms.Button();
             this.PartyBut = new System.Windows.Forms.Button();
@@ -56,7 +55,6 @@
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
-            this.MainPanel.Controls.Add(this.LoxBoxMenu);
             this.MainPanel.Controls.Add(this.LoxText);
             this.MainPanel.Controls.Add(this.TatamiBut);
             this.MainPanel.Controls.Add(this.PartyBut);
@@ -68,14 +66,6 @@
             this.MainPanel.TabIndex = 0;
             this.MainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
-            // 
-            // LoxBoxMenu
-            // 
-            this.LoxBoxMenu.Location = new System.Drawing.Point(419, 127);
-            this.LoxBoxMenu.Name = "LoxBoxMenu";
-            this.LoxBoxMenu.Size = new System.Drawing.Size(82, 20);
-            this.LoxBoxMenu.TabIndex = 13;
-            this.LoxBoxMenu.Visible = false;
             // 
             // LoxText
             // 
@@ -293,7 +283,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LoxText;
-        public System.Windows.Forms.TextBox LoxBoxMenu;
         private System.Windows.Forms.Timer timerLox;
     }
 }
