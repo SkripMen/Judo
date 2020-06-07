@@ -109,7 +109,7 @@ namespace Judo
 
             if (visible == false)
             {
-                db.SendCommand(String.Format("INSERT INTO users (login, hash) VALUES ('{0}', '{1}')", LoginInput.Text, hash.HashPassword(PasswordInput.Text)));
+                db.SendCommand(String.Format("INSERT INTO users (login, hash) VALUES ('{0}', '{1}')", LoginInput.Text, hash.HashPassword(password)));
                 this.Hide();
                 MenuForm menuForm = new MenuForm();
                 menuForm.is_guest = false;
