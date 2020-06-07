@@ -43,6 +43,7 @@
             this.CloseBut = new System.Windows.Forms.PictureBox();
             this.Settings = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LoxText = new System.Windows.Forms.Label();
             this.MainPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
@@ -53,6 +54,7 @@
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
+            this.MainPanel.Controls.Add(this.LoxText);
             this.MainPanel.Controls.Add(this.TatamiBut);
             this.MainPanel.Controls.Add(this.PartyBut);
             this.MainPanel.Controls.Add(this.MembersBut);
@@ -218,6 +220,18 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // LoxText
+            // 
+            this.LoxText.AutoSize = true;
+            this.LoxText.Font = new System.Drawing.Font("Arial", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoxText.ForeColor = System.Drawing.Color.White;
+            this.LoxText.Location = new System.Drawing.Point(132, 104);
+            this.LoxText.Name = "LoxText";
+            this.LoxText.Padding = new System.Windows.Forms.Padding(0, 50, 0, 50);
+            this.LoxText.Size = new System.Drawing.Size(247, 124);
+            this.LoxText.TabIndex = 12;
+            this.LoxText.Text = "Вы зашли в режим гостя";
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +251,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Judo | Меню";
             this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
             this.SettingsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Settings)).EndInit();
@@ -260,5 +275,6 @@
         private System.Windows.Forms.PictureBox CloseBut;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LoxText;
     }
 }

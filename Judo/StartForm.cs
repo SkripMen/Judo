@@ -14,6 +14,7 @@ namespace Judo
     {
         int panellogin;
         bool Hidden;
+        bool lox;
 
         public StartForm()
         {
@@ -23,6 +24,7 @@ namespace Judo
             ErrorText3.Visible = false;
             panellogin = LoginPanel.Width;
             Hidden = false;
+            lox = false;
         }
 
         private void CloseBut_Click(object sender, EventArgs e)
@@ -158,6 +160,14 @@ namespace Judo
                 this.Left += e.X - lastPoint.X;
                 this.Top += e.Y - lastPoint.Y;
             }
+        }
+
+        private void LoxBur_Click(object sender, EventArgs e)
+        {
+            MenuForm menuForm = new MenuForm();
+            lox = true;
+            this.Hide();
+            menuForm.Show();
         }
     }
 }

@@ -14,12 +14,16 @@ namespace Judo
     {
         int panelset;
         bool Hidden;
+        public bool lox;
         public MenuForm()
         {
             InitializeComponent();
-            //SettingsPanel.Visible = false;
             panelset = SettingsPanel.Width;
             Hidden = false;
+            if (lox == true)
+                LoxText.Visible = true;
+            else
+                LoxText.Visible = false;
         }
 
         Point lastPoint;

@@ -35,7 +35,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.EditBut = new System.Windows.Forms.Button();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,6 +45,7 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.EditBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -57,8 +57,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
+            this.panel1.Controls.Add(this.EditBox);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.EditBut);
             this.panel1.Controls.Add(this.BackBut);
             this.panel1.Controls.Add(this.ImportBut);
             this.panel1.Controls.Add(this.panel2);
@@ -107,17 +107,6 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(779, 394);
             this.dataGridView1.TabIndex = 5;
-            // 
-            // EditBut
-            // 
-            this.EditBut.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditBut.Location = new System.Drawing.Point(276, 507);
-            this.EditBut.Name = "EditBut";
-            this.EditBut.Size = new System.Drawing.Size(249, 36);
-            this.EditBut.TabIndex = 4;
-            this.EditBut.Text = "Редактировать";
-            this.EditBut.UseVisualStyleBackColor = true;
-            this.EditBut.Click += new System.EventHandler(this.EditBut_Click);
             // 
             // BackBut
             // 
@@ -229,6 +218,18 @@
             this.timer.Interval = 5;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // EditBox
+            // 
+            this.EditBox.AutoSize = true;
+            this.EditBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditBox.ForeColor = System.Drawing.Color.White;
+            this.EditBox.Location = new System.Drawing.Point(275, 513);
+            this.EditBox.Name = "EditBox";
+            this.EditBox.Size = new System.Drawing.Size(235, 26);
+            this.EditBox.TabIndex = 6;
+            this.EditBox.Text = "Режим редактирования";
+            this.EditBox.UseVisualStyleBackColor = true;
+            // 
             // MembersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +242,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Judo | Участники";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
@@ -258,7 +260,6 @@
         private System.Windows.Forms.Label TextPanel;
         private System.Windows.Forms.Button BackBut;
         private System.Windows.Forms.Button ImportBut;
-        private System.Windows.Forms.Button EditBut;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.PictureBox SearchBut;
@@ -266,5 +267,6 @@
         private System.Windows.Forms.PictureBox CloseBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.CheckBox EditBox;
     }
 }

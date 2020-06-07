@@ -54,6 +54,7 @@
             this.LoginInput = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.LoxBur = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
             this.LoginPanel.SuspendLayout();
@@ -102,6 +103,7 @@
             // LoginPanel
             // 
             this.LoginPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
+            this.LoginPanel.Controls.Add(this.LoxBur);
             this.LoginPanel.Controls.Add(this.ErrorText);
             this.LoginPanel.Controls.Add(this.RegisterBut);
             this.LoginPanel.Controls.Add(this.LoginBut);
@@ -335,6 +337,20 @@
             this.timer.Interval = 15;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // LoxBur
+            // 
+            this.LoxBur.AutoSize = true;
+            this.LoxBur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoxBur.Font = new System.Drawing.Font("Arial", 10F);
+            this.LoxBur.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.LoxBur.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.LoxBur.Location = new System.Drawing.Point(155, 299);
+            this.LoxBur.Name = "LoxBur";
+            this.LoxBur.Size = new System.Drawing.Size(111, 16);
+            this.LoxBur.TabIndex = 15;
+            this.LoxBur.Text = "Войти как гость";
+            this.LoxBur.Click += new System.EventHandler(this.LoxBur_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +405,6 @@
         private System.Windows.Forms.TextBox LoginInput;
         private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.Timer timer;
+        public System.Windows.Forms.Label LoxBur;
     }
 }
