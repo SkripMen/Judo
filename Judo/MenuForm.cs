@@ -68,9 +68,8 @@ namespace Judo
         private void MembersBut_Click(object sender, EventArgs e)
         {
             this.Hide();
-            MembersForm membersForm = new MembersForm();
+            MembersForm membersForm = new MembersForm(is_guest);
             //membersForm.LoxBoxMem.Text = this.LoxBoxMenu.Text;
-            membersForm.is_guest = this.is_guest;
             membersForm.Show();
         }
 

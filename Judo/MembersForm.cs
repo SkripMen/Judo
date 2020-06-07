@@ -16,12 +16,12 @@ namespace Judo
         int panellogin;
         bool Hidden;
         bool ChangeProve = false;
-        public bool is_guest;
+        bool is_guest;
 
-        public MembersForm()
+        public MembersForm(bool IS_guest)
         {
+            is_guest = IS_guest;
             InitializeComponent();
-            EditBox.Visible = is_guest;
             SearchPanel.Visible = true;
             panellogin = SearchPanel.Width;
             Hidden = false;
@@ -29,6 +29,7 @@ namespace Judo
         }
         private void EqualDGV()
         {
+            EditBox.Visible = !is_guest;
             DataBase DB = new DataBase();
             DataSet ds = DB.DGView("SELECT * FROM participants;");
             ds.Tables[0].Columns[1].ColumnName = "Имя";
@@ -84,9 +85,7 @@ namespace Judo
                                 "Сохранить изменения?",
                                 "Сообщение",
                                 MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Information,
-                                MessageBoxDefaultButton.Button1,
-                                MessageBoxOptions.DefaultDesktopOnly
+                                MessageBoxIcon.Information
                                 );
                 if (ifb == DialogResult.Yes)
                 {
@@ -303,13 +302,15 @@ namespace Judo
         {
             ChangeProve = true;
             if (EditBox.Checked)
-            {
+            { 
                 dataGridView1.AllowUserToAddRows = true;
+                dataGridView1.AllowUserToDeleteRows = true;
                 dataGridView1.ReadOnly = false;
             }
             else
-            {
+            {                
                 dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.AllowUserToDeleteRows = false;
                 dataGridView1.ReadOnly = true;
             }
         }

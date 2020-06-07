@@ -39,6 +39,7 @@
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.LoxBoxMem = new System.Windows.Forms.TextBox();
             this.CloseBox = new System.Windows.Forms.PictureBox();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.LoxBoxMem = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -85,6 +85,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -120,7 +121,6 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(779, 394);
             this.dataGridView1.TabIndex = 5;
             // 
@@ -159,6 +159,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 100);
             this.panel2.TabIndex = 0;
+            // 
+            // LoxBoxMem
+            // 
+            this.LoxBoxMem.Location = new System.Drawing.Point(28, 26);
+            this.LoxBoxMem.Name = "LoxBoxMem";
+            this.LoxBoxMem.Size = new System.Drawing.Size(100, 20);
+            this.LoxBoxMem.TabIndex = 8;
+            this.LoxBoxMem.Visible = false;
             // 
             // CloseBox
             // 
@@ -234,14 +242,6 @@
             // 
             this.timer.Interval = 5;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // LoxBoxMem
-            // 
-            this.LoxBoxMem.Location = new System.Drawing.Point(28, 26);
-            this.LoxBoxMem.Name = "LoxBoxMem";
-            this.LoxBoxMem.Size = new System.Drawing.Size(100, 20);
-            this.LoxBoxMem.TabIndex = 8;
-            this.LoxBoxMem.Visible = false;
             // 
             // MembersForm
             // 
