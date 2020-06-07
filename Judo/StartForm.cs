@@ -45,6 +45,7 @@ namespace Judo
                     this.Hide();
                     MenuForm menuForm = new MenuForm();
                     menuForm.is_guest = false;
+                    menuForm.login = login;
                     menuForm.Show();
                 }
                 else ErrorText.Visible = true;
@@ -111,6 +112,8 @@ namespace Judo
                 db.SendCommand(String.Format("INSERT INTO users (login, hash) VALUES ('{0}', '{1}')", LoginInput.Text, hash.HashPassword(PasswordInput.Text)));
                 this.Hide();
                 MenuForm menuForm = new MenuForm();
+                menuForm.is_guest = false;
+                menuForm.login = login;
                 menuForm.Show();
             }
         }

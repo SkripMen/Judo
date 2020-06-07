@@ -10,10 +10,13 @@ using System.Windows.Forms;
 
 namespace Judo
 {
+
     public partial class ChangeForm : Form
     {
-        public ChangeForm()
+        string login;
+        public ChangeForm(string Login)
         {
+            login = Login;
             InitializeComponent();
             ErrorText.Visible = false;
         }
@@ -72,12 +75,22 @@ namespace Judo
                 ErrorText.Visible = false;
                 visible = false;
             }
-            /*
-            if (хз что тут писать)
+            if (visible == false)
             {
-                db.SendCommand(String.Format("UPDATE users SET hash='{0}'", hash.HashPassword(PasNewBox.Text)));
-                this.Hide();
-            }*/
+                string command = String.Format("SELECT * FROM users WHERE login = '{0}';", login);
+                object[] DBT = db.SendCommand(command);
+                if (DBT[0] != null)
+                {
+                    if (DBT[1].ToString() == login && hash.VerifyHashedPassword(DBT[2].ToString(), passOld))
+                    {
+                        db.SendCommand(String.Format("UPDATE users SET hash='{0}' WHERE id = {1};", hash.HashPassword(passNew), DBT[0]));
+                        this.Hide();
+                    }
+                    else ErrorText.Visible = true;
+                }
+                else ErrorText.Visible = true;
+            }
+            else ErrorText.Visible = true;
         }
     }
 }

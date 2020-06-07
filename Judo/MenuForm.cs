@@ -15,6 +15,7 @@ namespace Judo
         int panelset;
         bool Hidden;
         public bool is_guest;
+        public string login;
         public MenuForm()
         {
             InitializeComponent();
@@ -84,7 +85,7 @@ namespace Judo
             }
             else
             {
-                ChangeForm changeForm = new ChangeForm();
+                ChangeForm changeForm = new ChangeForm(login);
                 changeForm.Show();
             }
             
