@@ -69,7 +69,6 @@ namespace Judo
         {
             this.Hide();
             MembersForm membersForm = new MembersForm();
-            //membersForm.LoxBoxMem.Text = this.LoxBoxMenu.Text;
             membersForm.is_guest = this.is_guest;
             membersForm.Show();
         }

@@ -23,7 +23,6 @@ namespace Judo
             ErrorText3.Visible = false;
             panellogin = LoginPanel.Width;
             Hidden = false;
-            LoxBoxLog.Text = "";
         }
 
         private void CloseBut_Click(object sender, EventArgs e)
