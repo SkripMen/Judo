@@ -24,7 +24,7 @@ namespace Judo
             OleDbDataReader DBDataReader = DBCommand.ExecuteReader();
 
             DBDataReader.Read();
-            object[][] Rows = new object[DBDataReader.FieldCount][];
+            object[] Rows = new object[DBDataReader.FieldCount];
             //string data = DBDataReader["hash"].ToString();
             if (DBDataReader.HasRows)
             {
