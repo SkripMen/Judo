@@ -14,16 +14,12 @@ namespace Judo
     {
         int panelset;
         bool Hidden;
-        public bool lox;
         public MenuForm()
         {
             InitializeComponent();
+            timerLox.Enabled = true;
             panelset = SettingsPanel.Width;
             Hidden = false;
-            if (lox == true)
-                LoxText.Visible = true;
-            else
-                LoxText.Visible = false;
         }
 
         Point lastPoint;
@@ -122,6 +118,14 @@ namespace Judo
             this.Hide();
             TatamiForm tatamiForm = new TatamiForm();
             tatamiForm.Show();
+        }
+
+        private void timerLox_Tick(object sender, EventArgs e)
+        {
+            if (LoxBoxMenu.Text == "гость")
+                LoxText.Visible = true;
+            else
+                LoxText.Visible = false;
         }
     }
 }

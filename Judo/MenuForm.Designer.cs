@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.LoxBoxMenu = new System.Windows.Forms.TextBox();
+            this.LoxText = new System.Windows.Forms.Label();
             this.TatamiBut = new System.Windows.Forms.Button();
             this.PartyBut = new System.Windows.Forms.Button();
             this.MembersBut = new System.Windows.Forms.Button();
@@ -43,7 +45,7 @@
             this.CloseBut = new System.Windows.Forms.PictureBox();
             this.Settings = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.LoxText = new System.Windows.Forms.Label();
+            this.timerLox = new System.Windows.Forms.Timer(this.components);
             this.MainPanel.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
@@ -54,6 +56,7 @@
             // MainPanel
             // 
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
+            this.MainPanel.Controls.Add(this.LoxBoxMenu);
             this.MainPanel.Controls.Add(this.LoxText);
             this.MainPanel.Controls.Add(this.TatamiBut);
             this.MainPanel.Controls.Add(this.PartyBut);
@@ -65,6 +68,27 @@
             this.MainPanel.TabIndex = 0;
             this.MainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.MainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
+            // 
+            // LoxBoxMenu
+            // 
+            this.LoxBoxMenu.Location = new System.Drawing.Point(419, 127);
+            this.LoxBoxMenu.Name = "LoxBoxMenu";
+            this.LoxBoxMenu.Size = new System.Drawing.Size(82, 20);
+            this.LoxBoxMenu.TabIndex = 13;
+            this.LoxBoxMenu.Visible = false;
+            // 
+            // LoxText
+            // 
+            this.LoxText.AutoSize = true;
+            this.LoxText.Font = new System.Drawing.Font("Arial", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoxText.ForeColor = System.Drawing.Color.White;
+            this.LoxText.Location = new System.Drawing.Point(132, 104);
+            this.LoxText.Name = "LoxText";
+            this.LoxText.Padding = new System.Windows.Forms.Padding(0, 50, 0, 50);
+            this.LoxText.Size = new System.Drawing.Size(247, 124);
+            this.LoxText.TabIndex = 12;
+            this.LoxText.Text = "Вы зашли в режим гостя";
+            this.LoxText.Visible = false;
             // 
             // TatamiBut
             // 
@@ -220,17 +244,10 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // LoxText
+            // timerLox
             // 
-            this.LoxText.AutoSize = true;
-            this.LoxText.Font = new System.Drawing.Font("Arial", 15.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LoxText.ForeColor = System.Drawing.Color.White;
-            this.LoxText.Location = new System.Drawing.Point(132, 104);
-            this.LoxText.Name = "LoxText";
-            this.LoxText.Padding = new System.Windows.Forms.Padding(0, 50, 0, 50);
-            this.LoxText.Size = new System.Drawing.Size(247, 124);
-            this.LoxText.TabIndex = 12;
-            this.LoxText.Text = "Вы зашли в режим гостя";
+            this.timerLox.Interval = 1;
+            this.timerLox.Tick += new System.EventHandler(this.timerLox_Tick);
             // 
             // MenuForm
             // 
@@ -276,5 +293,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LoxText;
+        public System.Windows.Forms.TextBox LoxBoxMenu;
+        private System.Windows.Forms.Timer timerLox;
     }
 }
