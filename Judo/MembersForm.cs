@@ -15,6 +15,7 @@ namespace Judo
     {
         int panellogin;
         bool Hidden;
+        bool ChangeProve = false;
 
         public MembersForm()
         {
@@ -76,46 +77,50 @@ namespace Judo
 
         private void BackBut_Click(object sender, EventArgs e)
         {
-            DialogResult ifb = MessageBox.Show(
-                "Сохранить изменения?",
-                "Сообщение",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Information,
-                MessageBoxDefaultButton.Button1,
-                MessageBoxOptions.DefaultDesktopOnly
-                );
-            if (ifb == DialogResult.Yes)
+            if (ChangeProve)
             {
-                dataGridView1.AllowUserToAddRows = false;
-                DataBase DB = new DataBase();
-                string command = String.Format("DELETE * FROM participants");
-                DB.SendCommand(command);
-                string[,] OneLine = new string[dataGridView1.Rows.Count, dataGridView1.Columns.Count];
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                DialogResult ifb = MessageBox.Show(
+                                "Сохранить изменения?",
+                                "Сообщение",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Information,
+                                MessageBoxDefaultButton.Button1,
+                                MessageBoxOptions.DefaultDesktopOnly
+                                );
+                if (ifb == DialogResult.Yes)
                 {
-                    for (int b = 1; b < dataGridView1.Columns.Count; b++)
+                    dataGridView1.AllowUserToAddRows = false;
+                    DataBase DB = new DataBase();
+                    string command = String.Format("DELETE * FROM participants");
+                    DB.SendCommand(command);
+                    string[,] OneLine = new string[dataGridView1.Rows.Count, dataGridView1.Columns.Count];
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        OneLine[i, b] = dataGridView1.Rows[i].Cells[b].Value.ToString();
-                        if (OneLine[i, b] == null || OneLine[i, b] == "")
+                        for (int b = 1; b < dataGridView1.Columns.Count; b++)
                         {
-                            OneLine[i, b] = "Не указано";
+                            OneLine[i, b] = dataGridView1.Rows[i].Cells[b].Value.ToString();
+                            if (OneLine[i, b] == null || OneLine[i, b] == "")
+                            {
+                                OneLine[i, b] = "Не указано";
+                            }
                         }
+                        DB.SendCommand(String.Format(
+                            "INSERT INTO participants (fName, Surname, Gender, Birthday, Birthtown, Locations, Sportsclub, Weight)" +
+                            " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
+                            OneLine[i, 1],
+                            OneLine[i, 2],
+                            OneLine[i, 3],
+                            OneLine[i, 4],
+                            OneLine[i, 5],
+                            OneLine[i, 6],
+                            OneLine[i, 7],
+                            OneLine[i, 8]
+                            ));
                     }
-                    DB.SendCommand(String.Format(
-                        "INSERT INTO participants (fName, Surname, Gender, Birthday, Birthtown, Locations, Sportsclub, Weight)" +
-                        " VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
-                        OneLine[i, 1],
-                        OneLine[i, 2],
-                        OneLine[i, 3],
-                        OneLine[i, 4],
-                        OneLine[i, 5],
-                        OneLine[i, 6],
-                        OneLine[i, 7],
-                        OneLine[i, 8]
-                        ));
+                    dataGridView1.AllowUserToAddRows = true;
                 }
-                dataGridView1.AllowUserToAddRows = true;
             }
+
             this.Hide();
             MenuForm menuForm = new MenuForm();
             menuForm.Show();
@@ -289,6 +294,21 @@ namespace Judo
                     Hidden = true;
                     this.Refresh();
                 }
+            }
+        }
+
+        private void EditBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeProve = true;
+            if (EditBox.Checked)
+            {
+                dataGridView1.AllowUserToAddRows = true;
+                dataGridView1.ReadOnly = false;
+            }
+            else
+            {
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.ReadOnly = true;
             }
         }
     }

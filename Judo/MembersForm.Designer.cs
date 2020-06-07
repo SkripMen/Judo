@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.EditBox = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.BackBut = new System.Windows.Forms.Button();
             this.ImportBut = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.TextPanel = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.EditBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -68,8 +68,22 @@
             this.panel1.Size = new System.Drawing.Size(800, 555);
             this.panel1.TabIndex = 0;
             // 
+            // EditBox
+            // 
+            this.EditBox.AutoSize = true;
+            this.EditBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditBox.ForeColor = System.Drawing.Color.White;
+            this.EditBox.Location = new System.Drawing.Point(275, 513);
+            this.EditBox.Name = "EditBox";
+            this.EditBox.Size = new System.Drawing.Size(235, 26);
+            this.EditBox.TabIndex = 6;
+            this.EditBox.Text = "Режим редактирования";
+            this.EditBox.UseVisualStyleBackColor = true;
+            this.EditBox.CheckedChanged += new System.EventHandler(this.EditBox_CheckedChanged);
+            // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -94,6 +108,7 @@
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.Location = new System.Drawing.Point(11, 107);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -217,18 +232,6 @@
             // 
             this.timer.Interval = 5;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // EditBox
-            // 
-            this.EditBox.AutoSize = true;
-            this.EditBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditBox.ForeColor = System.Drawing.Color.White;
-            this.EditBox.Location = new System.Drawing.Point(275, 513);
-            this.EditBox.Name = "EditBox";
-            this.EditBox.Size = new System.Drawing.Size(235, 26);
-            this.EditBox.TabIndex = 6;
-            this.EditBox.Text = "Режим редактирования";
-            this.EditBox.UseVisualStyleBackColor = true;
             // 
             // MembersForm
             // 
