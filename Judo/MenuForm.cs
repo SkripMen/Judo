@@ -68,13 +68,25 @@ namespace Judo
         {
             this.Hide();
             MembersForm membersForm = new MembersForm();
+            membersForm.LoxBoxMem.Text = this.LoxBoxMenu.Text;
             membersForm.Show();
         }
 
         private void ChangePas_Click(object sender, EventArgs e)
         {
-            ChangeForm changeForm = new ChangeForm();
-            changeForm.Show();
+            if(LoxBoxMenu.Text == "гость")
+            {
+                MessageBox.Show("Вы не можете менять пароль в режиме гостя",
+                                "Ошибка",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            else
+            {
+                ChangeForm changeForm = new ChangeForm();
+                changeForm.Show();
+            }
+            
         }
 
         private void CloseBut_Click(object sender, EventArgs e)
@@ -123,9 +135,13 @@ namespace Judo
         private void timerLox_Tick(object sender, EventArgs e)
         {
             if (LoxBoxMenu.Text == "гость")
+            {
                 LoxText.Visible = true;
+            }
             else
-                LoxText.Visible = false;
+            { 
+            LoxText.Visible = false;
+            }
         }
     }
 }

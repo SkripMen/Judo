@@ -123,6 +123,7 @@ namespace Judo
 
             this.Hide();
             MenuForm menuForm = new MenuForm();
+            menuForm.LoxBoxMenu.Text = this.LoxBoxMem.Text;
             menuForm.Show();
         }
 
