@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,8 +85,8 @@ namespace Judo
         {
             dataGridView2.Rows.Clear();
             string command = String.Format("SELECT participants.fName &' ' & participants.Surname," +
-                "participants.Weight,"+
-                "participants.Birthday"+
+                "participants.Weight," +
+                "participants.Birthday" +
                 " FROM Group{0}, participants" +
                 " WHERE (Group{0}.idSg = participants.Number)" +
                 " AND (Group{0}.idLg = {1})",
@@ -100,6 +101,84 @@ namespace Judo
                     dataGridView2.Rows[i].Cells[b].Value = OutBD[i, b];
                 }
             }
+        }
+
+        private void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView2.RowCount; i++)
+            {
+                dataGridView2.Rows[i].Selected = false;
+                for (int j = 0; j < dataGridView2.ColumnCount; j++)
+                {
+                    if (dataGridView2.Rows[i].Cells[j].Value != null)
+                    {
+                        if (dataGridView2.Rows[i].Cells[j].Value.ToString().Contains(SearchBox.Text))
+                        {
+                            dataGridView2.Rows[i].Selected = true;
+                            dataGridView2.FirstDisplayedScrollingRowIndex = i;
+                            dataGridView2.FirstDisplayedScrollingColumnIndex = j;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        string result;
+        private void PrintButton_Click(object sender, EventArgs e)
+        {
+            if (comboBoxLGroup.SelectedItem == null ||
+                comboBoxSGroup.SelectedItem == null ||
+                dataGridView2.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                "Ни одна группа не выбрана",
+                "Внимание",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error
+                );
+                return;
+            }
+            MessageBox.Show(
+                "Печать производиться только выбранной группы",
+                "Предупреждение",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+                );
+            result = String.Format("Категория: {0}\n{1}\n", comboBoxLGroup.SelectedItem.ToString().ToLower(), comboBoxSGroup.SelectedItem);
+            result += String.Format("\n{0,-20}|{1,3}|{2,14}",
+                    "Боец",
+                    "Вес",
+                    "Дата рождения"
+                    );
+            for (int i = 0; i < dataGridView2.RowCount; i++)
+            {
+                result += String.Format("\n{0,-20}|{1,3}|{2,14}",
+                    dataGridView2.Rows[i].Cells[0].Value,
+                    dataGridView2.Rows[i].Cells[1].Value,
+                    dataGridView2.Rows[i].Cells[2].Value
+                    );
+            }
+
+            // объект для печати
+            PrintDocument printDocument = new PrintDocument();
+
+            // обработчик события печати
+            printDocument.PrintPage += printDocument1_PrintPage;
+
+            // диалог настройки печати
+            PrintDialog printDialog = new PrintDialog();
+
+            // установка объекта печати для его настройки
+            printDialog.Document = printDocument;
+
+            // если в диалоге было нажато ОК
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDialog.Document.Print(); // печатаем
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(result, new Font("Arial", 14), Brushes.Black, 0, 0);
         }
     }
 }

@@ -39,11 +39,13 @@
             this.CloseBut = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ExitBut = new System.Windows.Forms.Button();
-            this.WinMembers = new System.Windows.Forms.Button();
+            this.PrintButton = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Борец = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ДР = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SearchBox = new System.Windows.Forms.TextBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
             this.panel2.SuspendLayout();
@@ -53,6 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
+            this.panel1.Controls.Add(this.SearchBox);
             this.panel1.Controls.Add(this.comboBoxLGroup);
             this.panel1.Controls.Add(this.comboBoxSGroup);
             this.panel1.Controls.Add(this.TextPanel);
@@ -118,7 +121,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(64)))), ((int)(((byte)(65)))));
             this.panel2.Controls.Add(this.ExitBut);
-            this.panel2.Controls.Add(this.WinMembers);
+            this.panel2.Controls.Add(this.PrintButton);
             this.panel2.Controls.Add(this.dataGridView2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
@@ -138,19 +141,21 @@
             this.ExitBut.UseVisualStyleBackColor = true;
             this.ExitBut.Click += new System.EventHandler(this.ExitBut_Click);
             // 
-            // WinMembers
+            // PrintButton
             // 
-            this.WinMembers.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.WinMembers.ForeColor = System.Drawing.Color.Black;
-            this.WinMembers.Location = new System.Drawing.Point(12, 334);
-            this.WinMembers.Name = "WinMembers";
-            this.WinMembers.Size = new System.Drawing.Size(242, 39);
-            this.WinMembers.TabIndex = 7;
-            this.WinMembers.Text = "Показать победителей";
-            this.WinMembers.UseVisualStyleBackColor = true;
+            this.PrintButton.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.PrintButton.ForeColor = System.Drawing.Color.Black;
+            this.PrintButton.Location = new System.Drawing.Point(12, 334);
+            this.PrintButton.Name = "PrintButton";
+            this.PrintButton.Size = new System.Drawing.Size(242, 39);
+            this.PrintButton.TabIndex = 7;
+            this.PrintButton.Text = "Печать";
+            this.PrintButton.UseVisualStyleBackColor = true;
+            this.PrintButton.Click += new System.EventHandler(this.PrintButton_Click);
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(83)))), ((int)(((byte)(86)))));
             this.dataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -179,6 +184,7 @@
             this.dataGridView2.GridColor = System.Drawing.Color.Black;
             this.dataGridView2.Location = new System.Drawing.Point(12, 15);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -197,18 +203,33 @@
             // 
             this.Борец.HeaderText = "Борец";
             this.Борец.Name = "Борец";
+            this.Борец.ReadOnly = true;
             this.Борец.Width = 350;
             // 
             // Вес
             // 
             this.Вес.HeaderText = "Вес";
             this.Вес.Name = "Вес";
+            this.Вес.ReadOnly = true;
             // 
             // ДР
             // 
             this.ДР.HeaderText = "Дата рождения";
             this.ДР.Name = "ДР";
+            this.ДР.ReadOnly = true;
             this.ДР.Width = 110;
+            // 
+            // SearchBox
+            // 
+            this.SearchBox.Location = new System.Drawing.Point(12, 74);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(181, 20);
+            this.SearchBox.TabIndex = 8;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // TatamiForm
             // 
@@ -227,6 +248,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TatamiForm";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -241,12 +263,14 @@
         private System.Windows.Forms.PictureBox CloseBut;
         private System.Windows.Forms.Label TextPanel;
         private System.Windows.Forms.Button ExitBut;
-        private System.Windows.Forms.Button WinMembers;
+        private System.Windows.Forms.Button PrintButton;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.ComboBox comboBoxSGroup;
         private System.Windows.Forms.ComboBox comboBoxLGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn Борец;
         private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
         private System.Windows.Forms.DataGridViewTextBoxColumn ДР;
+        private System.Windows.Forms.TextBox SearchBox;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
