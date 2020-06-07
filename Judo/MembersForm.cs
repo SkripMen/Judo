@@ -16,10 +16,12 @@ namespace Judo
         int panellogin;
         bool Hidden;
         bool ChangeProve = false;
+        public bool is_guest;
 
         public MembersForm()
         {
             InitializeComponent();
+            EditBox.Visible = is_guest;
             SearchPanel.Visible = true;
             panellogin = SearchPanel.Width;
             Hidden = false;
@@ -65,7 +67,6 @@ namespace Judo
                             {
                                 dataGridView1.Rows[i].Selected = true;
                                 dataGridView1.FirstDisplayedScrollingRowIndex = i;
-                                dataGridView1.FirstDisplayedScrollingColumnIndex = j;
                                 break;
                             }
                         }
@@ -123,7 +124,7 @@ namespace Judo
 
             this.Hide();
             MenuForm menuForm = new MenuForm();
-            menuForm.LoxBoxMenu.Text = this.LoxBoxMem.Text;
+            menuForm.is_guest = this.is_guest;
             menuForm.Show();
         }
 

@@ -14,7 +14,7 @@ namespace Judo
     {
         int panellogin;
         bool Hidden;
-        
+
         public StartForm()
         {
             InitializeComponent();
@@ -45,6 +45,7 @@ namespace Judo
                 {
                     this.Hide();
                     MenuForm menuForm = new MenuForm();
+                    menuForm.is_guest = false;
                     menuForm.Show();
                 }
                 else ErrorText.Visible = true;
@@ -163,9 +164,8 @@ namespace Judo
 
         private void LoxBur_Click(object sender, EventArgs e)
         {
-            LoxBoxLog.Text = "гость";
             MenuForm menuForm = new MenuForm();
-            menuForm.LoxBoxMenu.Text = this.LoxBoxLog.Text;
+            menuForm.is_guest = true;
             this.Hide();
             menuForm.Show();
         }
