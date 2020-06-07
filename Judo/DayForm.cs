@@ -145,9 +145,15 @@ namespace Judo
         }
         private object[][,] MinMax(object[,] Arr)
         {
-            int ArrI;
-            int max = Convert.ToInt32(Arr[0, 8].ToString());
-            int min = Convert.ToInt32(Arr[0, 8].ToString());
+            int ArrI, max = 0, min = 0;
+            for (int i = 0; i < Arr.GetLength(0); i++)
+            {
+                if (int.TryParse(Arr[i, 8].ToString(), out int b))
+                {
+                    max = b;
+                    min = b;
+                }
+            }
             for (int i = 0; i < Arr.GetLength(0); i++)
             {
                 if (int.TryParse(Arr[i, 8].ToString(), out ArrI))
@@ -172,7 +178,21 @@ namespace Judo
             {
                 MassCD[i] = sort(Arr, min + i * 3);
             }
-
+            for (int i = 0; i < MassCD.Length; i++)
+            {
+                if (MassCD[i].GetLength(0) % 2 > 0)
+                {
+                    object[,] tempArr = new object[MassCD[i].GetLength(0) - 1, 9];
+                    for (int d = 0; d < tempArr.GetLength(0); d++)
+                    {
+                        for (int b = 0; b < tempArr.GetLength(1); b++)
+                        {
+                            tempArr[d, b] = MassCD[i][d, b];
+                        }
+                    }
+                    MassCD[i] = tempArr;
+                }
+            }
             for (int i = 0; i < MassCD.Length; i++)
             {
                 if (MassCD[i].GetLength(0) > 6)
@@ -189,14 +209,14 @@ namespace Judo
                     int d = 0;
                     for (int c = 0; c < tempArr.Length; c++)
                     {
-                        
+
                         int l = 0;
                         if (Maxx - 6 > 0)
                         {
                             count = 6;
                             Maxx -= 6;
                         }
-                        else count = Maxx;                        
+                        else count = Maxx;
                         tempArr[c] = new object[count, 9];
                         for (; d < MassCD[i].GetLength(0); d++)
                         {
@@ -204,13 +224,13 @@ namespace Judo
                             {
                                 tempArr[c][l, k] = MassCD[i][d, k];
                             }
-                            if (l == tempArr[c].GetLength(0)-1)
+                            if (l == tempArr[c].GetLength(0) - 1)
                             {
                                 break;
                             }
                             ++l;
                         }
-                        
+
                     }
                     Array.Resize(ref MassCD, MassCD.Length + tempArr.Length - 1);
                     MassCD[i] = tempArr[0];
@@ -224,7 +244,7 @@ namespace Judo
                         }
                     }
                 }
-               
+
             }
             return MassCD;
 
@@ -263,7 +283,7 @@ namespace Judo
         private object[,] sort(object[,] arr, string filter, DateTime Champ)
         {
 
-            DateTime Maxflo = Champ.AddYears(-Convert.ToInt32(filter) + 2);
+            DateTime Maxflo = Champ.AddYears(-Convert.ToInt32(filter) - 2);
             DateTime Minflo = Champ.AddYears(-Convert.ToInt32(filter)).AddDays(1);
             DateTime hbc;
             int countSA = 0;
@@ -271,7 +291,7 @@ namespace Judo
             {
                 if (DateTime.TryParse(arr[i, 4].ToString(), out hbc))
                 {
-                    if (hbc > Minflo && hbc < Maxflo)
+                    if (hbc <= Minflo && hbc > Maxflo)
                     {
                         ++countSA;
                     }
@@ -283,7 +303,7 @@ namespace Judo
             {
                 if (DateTime.TryParse(arr[i, 4].ToString(), out hbc))
                 {
-                    if (hbc > Minflo && hbc < Maxflo)
+                    if (hbc <= Minflo && hbc > Maxflo)
                     {
                         for (int c = 0; c < arr.GetLength(1); c++)
                         {

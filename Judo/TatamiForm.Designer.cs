@@ -41,11 +41,9 @@
             this.ExitBut = new System.Windows.Forms.Button();
             this.WinMembers = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Татами = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Борец = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Вес = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Возраст = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Очки = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ДР = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBut)).BeginInit();
             this.panel2.SuspendLayout();
@@ -166,11 +164,9 @@
             this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Татами,
             this.Борец,
             this.Вес,
-            this.Возраст,
-            this.Очки});
+            this.ДР});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -197,11 +193,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(779, 313);
             this.dataGridView2.TabIndex = 6;
             // 
-            // Татами
-            // 
-            this.Татами.HeaderText = "Татами";
-            this.Татами.Name = "Татами";
-            // 
             // Борец
             // 
             this.Борец.HeaderText = "Борец";
@@ -213,17 +204,11 @@
             this.Вес.HeaderText = "Вес";
             this.Вес.Name = "Вес";
             // 
-            // Возраст
+            // ДР
             // 
-            this.Возраст.HeaderText = "Возраст";
-            this.Возраст.Name = "Возраст";
-            this.Возраст.Width = 103;
-            // 
-            // Очки
-            // 
-            this.Очки.HeaderText = "Очки";
-            this.Очки.Name = "Очки";
-            this.Очки.Width = 125;
+            this.ДР.HeaderText = "Дата рождения";
+            this.ДР.Name = "ДР";
+            this.ДР.Width = 110;
             // 
             // TatamiForm
             // 
@@ -258,12 +243,10 @@
         private System.Windows.Forms.Button ExitBut;
         private System.Windows.Forms.Button WinMembers;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Татами;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Борец;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Возраст;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Очки;
         private System.Windows.Forms.ComboBox comboBoxSGroup;
         private System.Windows.Forms.ComboBox comboBoxLGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Борец;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Вес;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ДР;
     }
 }

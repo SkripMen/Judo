@@ -82,7 +82,11 @@ namespace Judo
 
         private void comboBoxSGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string command = String.Format("SELECT participants.* FROM Group{0}, participants" +
+            dataGridView2.Rows.Clear();
+            string command = String.Format("SELECT participants.fName &' ' & participants.Surname," +
+                "participants.Weight,"+
+                "participants.Birthday"+
+                " FROM Group{0}, participants" +
                 " WHERE (Group{0}.idSg = participants.Number)" +
                 " AND (Group{0}.idLg = {1})",
                 comboBoxLGroup.SelectedIndex + 1,
@@ -90,11 +94,11 @@ namespace Judo
             object[,] OutBD = DGView(command);
             for (int i = 0; i < OutBD.GetLength(0); i++)
             {
+                dataGridView2.Rows.Add();
                 for (int b = 0; b < OutBD.GetLength(1); b++)
                 {
-                    Console.Write(OutBD[i, b]);
+                    dataGridView2.Rows[i].Cells[b].Value = OutBD[i, b];
                 }
-                Console.WriteLine();
             }
         }
     }
