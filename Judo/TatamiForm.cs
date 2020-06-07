@@ -13,9 +13,14 @@ namespace Judo
 {
     public partial class TatamiForm : Form
     {
+        int panellogin;
+        bool Hidden;
+
         public TatamiForm()
         {
             InitializeComponent();
+            panellogin = SearchPanel.Width;
+            Hidden = false;
         }
 
         private void CloseBut_Click(object sender, EventArgs e)
@@ -179,6 +184,54 @@ namespace Judo
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawString(result, new Font("Arial", 14), Brushes.Black, 0, 0);
+        }
+
+        private void SearchBut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchBut_Click_1(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (Hidden)
+            {
+                SearchPanel.Width = SearchPanel.Width + 10;
+                if (SearchPanel.Width >= panellogin)
+                {
+                    timer.Stop();
+                    Hidden = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                SearchPanel.Width = SearchPanel.Width - 10;
+                if (SearchPanel.Width <= 0)
+                {
+                    timer.Stop();
+                    Hidden = true;
+                    this.Refresh();
+                }
+            }
+        }
+
+        private void SearchPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint = new Point(e.X, e.Y);
+        }
+
+        private void SearchPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
         }
     }
 }
